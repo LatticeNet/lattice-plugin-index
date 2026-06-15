@@ -1,0 +1,10 @@
+{
+  "name": "@latticenet/plugin-index",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/validate-index.mjs plugins.json",
+    "check:examples": "node scripts/validate-index.mjs examples/plugins.example.json"
+  }
+}

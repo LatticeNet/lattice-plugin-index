@@ -1,0 +1,38 @@
+{
+  "schema": "lattice.plugin.index.v1",
+  "generated_at": "2026-06-15T00:00:00Z",
+  "status": "example",
+  "publishers": [
+    {
+      "id": "latticenet",
+      "name": "LatticeNet",
+      "public_key_ed25519": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+    }
+  ],
+  "plugins": [
+    {
+      "id": "latticenet.sing-box",
+      "name": "sing-box Manager",
+      "publisher": "latticenet",
+      "type": "system",
+      "summary": "Plan and apply reviewed sing-box configs on selected nodes.",
+      "latest": "0.1.0",
+      "capabilities": ["node:read", "network:plan", "network:apply"],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "manifest_url": "https://plugins.latticenet.invalid/latticenet.sing-box/0.1.0/manifest.json",
+          "artifact_url": "https://plugins.latticenet.invalid/latticenet.sing-box/0.1.0/artifact",
+          "artifact_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+          "signature_ed25519": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+        }
+      ]
+    }
+  ],
+  "signatures": [
+    {
+      "publisher": "latticenet",
+      "signature_ed25519": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  ]
+}

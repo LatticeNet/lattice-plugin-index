@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/validate-index.mjs plugins.json",
-    "check:examples": "node scripts/validate-index.mjs examples/plugins.example.json"
+    "check:examples": "node scripts/validate-index.mjs examples/plugins.example.json",
+    "test": "npm run check && npm run check:examples"
   }
 }

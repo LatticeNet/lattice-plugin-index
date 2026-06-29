@@ -24,6 +24,8 @@ const capabilitySet = new Set([
   "network:plan",
   "network:apply",
   "ddns:admin",
+  "rpc:call",
+  "rpc:expose",
 ]);
 
 const idRe = /^[a-z0-9][a-z0-9._-]{1,78}[a-z0-9]$/;

@@ -1,8 +1,61 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-06-15T00:00:00Z",
-  "status": "draft",
-  "publishers": [],
-  "plugins": [],
+  "generated_at": "2026-06-28T00:00:00Z",
+  "status": "official",
+  "publishers": [
+    {
+      "id": "latticenet",
+      "name": "LatticeNet",
+      "public_key_ed25519": "ghmeKHjYjv3uFIN7nMw5iEHWNq8m6ZBm4c1exO7BWtk="
+    }
+  ],
+  "plugins": [
+    {
+      "id": "latticenet.vpn-core",
+      "name": "vpn-core (sing-box)",
+      "publisher": "latticenet",
+      "type": "system",
+      "summary": "sing-box proxy manager: inbounds/users/profiles, subscriptions, on-box discovery, and managed add/remove on existing machines.",
+      "latest": "0.1.0",
+      "capabilities": [
+        "node:read",
+        "network:plan",
+        "network:apply",
+        "task:run"
+      ],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/artifact",
+          "artifact_sha256": "3a73c4c7fbccbfb4af1df791c8027ea11192fdba59bd030820505d8385308511",
+          "signature_ed25519": "imamYv6urvSp+lRvGzwVF4tGzNDjbMaYthZAUAAEe6u1X+ejqqqVUPpTsRhVaDnWVR7qt5wBq30dLHFDUJmfBw=="
+        }
+      ]
+    },
+    {
+      "id": "latticenet.sub-store",
+      "name": "Sub-Store companion",
+      "publisher": "latticenet",
+      "type": "system",
+      "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription (internal-only).",
+      "latest": "0.1.0",
+      "capabilities": [
+        "rpc:call",
+        "http:egress",
+        "kv:read",
+        "kv:write"
+      ],
+      "releases": [
+        {
+          "version": "0.1.0",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/artifact",
+          "artifact_sha256": "61385ead08ebab5aa84aa3f0a5deb7984c9dbea7c86ce4db5ef66e237c51d76c",
+          "signature_ed25519": "dy/h0v1bhcpjKVacoFqfdBq+6knRLt0AofXRg1Lg8F2BKFmGGkvCiU0tLLCzLbAmbfZlZ6H75rQhmwvZbcBrBA=="
+        }
+      ]
+    }
+  ],
   "signatures": []
 }

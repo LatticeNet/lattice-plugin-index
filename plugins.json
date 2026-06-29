@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-06-28T00:00:00Z",
+  "generated_at": "2026-06-29T00:00:00Z",
   "status": "official",
   "publishers": [
     {
@@ -15,8 +15,8 @@
       "name": "vpn-core (sing-box)",
       "publisher": "latticenet",
       "type": "system",
-      "summary": "sing-box proxy manager: inbounds/users/profiles, subscriptions, on-box discovery, and managed add/remove on existing machines. v0.2.0 contributes a dashboard Nodes view + declares the vpn-core/nodes interface (design-10).",
-      "latest": "0.2.0",
+      "summary": "sing-box proxy manager: inbounds/users/profiles, subscriptions, usage, on-box discovery, managed add/remove, and dashboard-owned VPN Manage views.",
+      "latest": "0.3.0",
       "capabilities": [
         "node:read",
         "network:plan",
@@ -24,6 +24,13 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.3.0",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.3.0/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.3.0/artifact",
+          "artifact_sha256": "d75effe7a2ed65608f2604cc92b46053d8a994418daf218ca95e41e2f404c3f7",
+          "signature_ed25519": "Bw+UzE28Q7U773zAG45+SBUT/gQLvgwOYG3zqtGLglmYQu1QvDGzbzYVJ3PsN+AA97MkJCLXQiv5S1LDCo90Aw=="
+        },
         {
           "version": "0.2.0",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.2.0/manifest.json",
@@ -45,8 +52,8 @@
       "name": "Sub-Store companion",
       "publisher": "latticenet",
       "type": "system",
-      "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription (internal-only).",
-      "latest": "0.1.0",
+      "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription and contributes the Sub-Store dashboard view under VPN Manage.",
+      "latest": "0.2.0",
       "capabilities": [
         "rpc:call",
         "http:egress",
@@ -54,6 +61,13 @@
         "kv:write"
       ],
       "releases": [
+        {
+          "version": "0.2.0",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.2.0/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.2.0/artifact",
+          "artifact_sha256": "d0c3dca5e34eeebf4ab23432e8c464afe49cf680907ecb5b579181ad2d2c12b9",
+          "signature_ed25519": "0B/Pacc4cAvhpLCGzYMXmeTlfo3BPZ6iM/SPXnKajWYfKMPMaZSRWQZA4cMBeYNyib4ZplPsiXZ9L6N36pBvDw=="
+        },
         {
           "version": "0.1.0",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/manifest.json",

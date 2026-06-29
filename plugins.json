@@ -28,8 +28,8 @@
           "version": "0.1.0",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/artifact",
-          "artifact_sha256": "3a73c4c7fbccbfb4af1df791c8027ea11192fdba59bd030820505d8385308511",
-          "signature_ed25519": "imamYv6urvSp+lRvGzwVF4tGzNDjbMaYthZAUAAEe6u1X+ejqqqVUPpTsRhVaDnWVR7qt5wBq30dLHFDUJmfBw=="
+          "artifact_sha256": "7839b5035db208d21c1271bda30e361fe7bd41a97e55811c428f1422bdb876e7",
+          "signature_ed25519": "EgD/qtpXozzhb3mNXNqK0Pe4HYduw+Q4rU4x7ifZQmtQmE3RvkkAaHntomRpE8r2HkywKfxNk0FlVXWHtALhBw=="
         }
       ]
     },
@@ -51,8 +51,8 @@
           "version": "0.1.0",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/artifact",
-          "artifact_sha256": "61385ead08ebab5aa84aa3f0a5deb7984c9dbea7c86ce4db5ef66e237c51d76c",
-          "signature_ed25519": "dy/h0v1bhcpjKVacoFqfdBq+6knRLt0AofXRg1Lg8F2BKFmGGkvCiU0tLLCzLbAmbfZlZ6H75rQhmwvZbcBrBA=="
+          "artifact_sha256": "18d9655867e3bfeb0923679db59937fe749e335144ebe6b0273c008ab7a3ffdd",
+          "signature_ed25519": "YIaCXLcJwSwnwk3bXIYd+WLRnxq1j67YmrHI9eEgG5qgb5YCh6kBANJuv75ENebhGwbxB0KcSl29dLX2+ryICQ=="
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-06-29T00:00:00Z",
+  "generated_at": "2026-06-30T00:00:00Z",
   "status": "official",
   "publishers": [
     {
@@ -16,7 +16,7 @@
       "publisher": "latticenet",
       "type": "system",
       "summary": "sing-box proxy manager (live system plugin): unified Lines, VPN identities (email + per-protocol credential set, bound to many lines), per-node runtime profiles, 3-D usage, producer-side subscriptions, and dashboard-owned VPN Manage views.",
-      "latest": "0.7.0",
+      "latest": "0.7.1",
       "capabilities": [
         "node:read",
         "network:plan",
@@ -24,6 +24,13 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.7.1",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/artifact",
+          "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
+          "signature_ed25519": "UwZMGVfXf4pBPXmP3oPAwoEEBuSJImVbSs046U4fqv0o/rqxHZ+z9aTUs5+vLJ4wpuOZGKGX4O/7AjU172oHBQ=="
+        },
         {
           "version": "0.7.0",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.0/manifest.json",

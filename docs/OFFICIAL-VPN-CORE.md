@@ -19,6 +19,11 @@ The dashboard calls these through the plugin gateway. The server enforces the
 declared interface scopes and serves the builtin views registered for the
 official plugin.
 
+Since `v0.7.1`, the official manifest publishes Lines as the only line/listener
+operator entry. The legacy dashboard builtin `proxy.inbounds` may remain in code
+for rollback or direct-core compatibility, but it is no longer exposed by the
+official vpn-core plugin navigation.
+
 ## Source of truth for sing-box
 
 The node's actual sing-box runtime configuration is the source of truth.

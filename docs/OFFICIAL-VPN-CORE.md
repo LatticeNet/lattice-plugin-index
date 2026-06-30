@@ -118,6 +118,19 @@ For common VPN nodes also enable:
 - `LATTICE_SINGBOX_DISCOVER=1`
 - `LATTICE_SINGBOX_BIN=sb`
 
+Dashboard behavior:
+
+- Lines is the official add/delete entry in vpn-core `v0.7.1+`.
+- Add requires node, protocol, and port. Optional extra arguments are validated
+  and passed to the node-local `sb` tool.
+- Operators can preselect VPN users during add. The dashboard does not bind them
+  immediately, because the authoritative `line_hash_id` only exists after the
+  new runtime config is discovered. Instead it keeps a pending bind plan, queues
+  a follow-up probe, then binds selected users once a matching
+  node/protocol/port line appears.
+- Delete is available for discovered lines with a reported sing-box node name.
+  It queues `sb del` and the row disappears only after a later successful probe.
+
 ## Interop with the maintained sing-box tool fork
 
 Lattice should integrate with the maintained local fork at:

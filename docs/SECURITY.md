@@ -13,6 +13,10 @@ Lattice server must reject remote install unless all checks pass:
 6. capability risk is shown to the operator;
 7. install is approved and audited.
 
+An unsigned index is discovery-only. It must use `status: "draft"` or
+`status: "example"`; `status: "official"` requires at least one top-level index
+signature before any server or operator tooling treats it as an official catalog.
+
 ## Host-Risk Plugins
 
 Host-risk plugins include capabilities such as:

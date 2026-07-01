@@ -1,7 +1,7 @@
 {
   "schema": "lattice.plugin.index.v1",
   "generated_at": "2026-06-30T00:00:00Z",
-  "status": "official",
+  "status": "draft",
   "publishers": [
     {
       "id": "latticenet",

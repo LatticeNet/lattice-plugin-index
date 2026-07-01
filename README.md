@@ -5,8 +5,9 @@ Static plugin index for the Lattice marketplace foundation.
 Current status:
 
 ```txt
-draft format + validator
-no installable official plugins yet
+draft index + structural validator
+signed plugin releases listed for integration testing
+no signed official top-level index yet
 no server-side remote install yet
 ```
 
@@ -21,8 +22,9 @@ install candidate; Lattice server must still verify:
 
 ## Files
 
-- `plugins.json` - current index. Empty until LatticeNet has a stable signing
-  key and first official plugin artifacts.
+- `plugins.json` - current draft index. It may list LatticeNet release
+  candidates, but it must not be treated as an official marketplace index until
+  `status` is `official` and the top-level `signatures` array is populated.
 - `examples/plugins.example.json` - full example shape with placeholder keys and
   URLs.
 - `scripts/validate-index.mjs` - dependency-free structural validator.

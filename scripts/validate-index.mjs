@@ -27,6 +27,7 @@ const capabilitySet = new Set([
   "rpc:call",
   "rpc:expose",
 ]);
+const statusSet = new Set(["draft", "official", "example"]);
 
 const idRe = /^[a-z0-9][a-z0-9._-]{1,78}[a-z0-9]$/;
 const versionRe = /^[A-Za-z0-9][A-Za-z0-9._+:-]{0,63}$/;
@@ -61,9 +62,13 @@ const data = JSON.parse(raw);
 
 assert(data.schema === "lattice.plugin.index.v1", "schema must be lattice.plugin.index.v1");
 assert(typeof data.generated_at === "string" && data.generated_at.endsWith("Z"), "generated_at must be UTC RFC3339-ish");
+assert(statusSet.has(data.status), "status must be draft, official, or example");
 assert(Array.isArray(data.publishers), "publishers must be an array");
 assert(Array.isArray(data.plugins), "plugins must be an array");
 assert(Array.isArray(data.signatures), "signatures must be an array");
+if (data.status === "official") {
+  assert(data.signatures.length > 0, "official indexes require at least one signature");
+}
 
 const publishers = new Set();
 for (const p of data.publishers) {

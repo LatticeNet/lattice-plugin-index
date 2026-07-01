@@ -6,6 +6,7 @@
   "scripts": {
     "check": "node scripts/validate-index.mjs plugins.json",
     "check:examples": "node scripts/validate-index.mjs examples/plugins.example.json",
-    "test": "npm run check && npm run check:examples"
+    "test:validator": "node scripts/test-validator.mjs",
+    "test": "npm run check && npm run check:examples && npm run test:validator"
   }
 }

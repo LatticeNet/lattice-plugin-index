@@ -15,6 +15,10 @@ Top-level fields:
 - `plugins`: plugin metadata and releases.
 - `signatures`: signatures over the canonical index payload.
 
+`status: "official"` is reserved for an index with at least one top-level
+signature. Unsigned indexes must remain `draft` or `example`, even when they list
+signed plugin release manifests.
+
 ## Publisher
 
 ```json

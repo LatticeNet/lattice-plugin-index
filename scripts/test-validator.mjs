@@ -80,6 +80,22 @@ try {
   });
   expectReject("duplicate-release", duplicateRelease, "plugin latticenet.test release version duplicated: 0.1.0");
 
+  const shortPublisherKey = baseIndex();
+  shortPublisherKey.publishers[0].public_key_ed25519 = Buffer.alloc(31).toString("base64");
+  expectReject("short-publisher-key", shortPublisherKey, "publisher latticenet public_key_ed25519 must be base64 raw Ed25519 public key (32 bytes)");
+
+  const shortReleaseSignature = baseIndex();
+  shortReleaseSignature.plugins[0].releases[0].signature_ed25519 = Buffer.alloc(63).toString("base64");
+  expectReject("short-release-signature", shortReleaseSignature, "plugin latticenet.test release signature_ed25519 must be base64 raw Ed25519 signature (64 bytes)");
+
+  const shortIndexSignature = baseIndex();
+  shortIndexSignature.status = "official";
+  shortIndexSignature.signatures.push({
+    publisher: "latticenet",
+    signature_ed25519: Buffer.alloc(63).toString("base64"),
+  });
+  expectReject("short-index-signature", shortIndexSignature, "index signature for latticenet must be base64 raw Ed25519 signature (64 bytes)");
+
   console.log("plugin-index: validator contracts ok");
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });

@@ -51,9 +51,18 @@ function isHTTPURL(value) {
   }
 }
 
-function isBase64(value) {
-  if (typeof value !== "string" || value === "") return false;
-  return /^[A-Za-z0-9+/]+={0,2}$/.test(value);
+function base64DecodedLength(value) {
+  if (typeof value !== "string" || value === "") return -1;
+  if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value)) {
+    return -1;
+  }
+  const decoded = Buffer.from(value, "base64");
+  if (decoded.toString("base64") !== value) return -1;
+  return decoded.length;
+}
+
+function isBase64Bytes(value, bytes) {
+  return base64DecodedLength(value) === bytes;
 }
 
 const file = process.argv[2] || "plugins.json";
@@ -74,7 +83,7 @@ const publishers = new Set();
 for (const p of data.publishers) {
   assert(idRe.test(p.id || ""), `publisher id is invalid: ${p.id}`);
   assert(typeof p.name === "string" && p.name.trim() !== "", `publisher ${p.id} name is required`);
-  assert(isBase64(p.public_key_ed25519), `publisher ${p.id} public_key_ed25519 must be base64`);
+  assert(isBase64Bytes(p.public_key_ed25519, 32), `publisher ${p.id} public_key_ed25519 must be base64 raw Ed25519 public key (32 bytes)`);
   publishers.add(p.id);
 }
 
@@ -104,14 +113,14 @@ for (const plugin of data.plugins) {
     assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/fragment`);
     assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/fragment`);
     assert(sha256Re.test(release.artifact_sha256 || ""), `plugin ${plugin.id} release artifact_sha256 must be lowercase SHA-256`);
-    assert(isBase64(release.signature_ed25519), `plugin ${plugin.id} release signature_ed25519 must be base64`);
+    assert(isBase64Bytes(release.signature_ed25519, 64), `plugin ${plugin.id} release signature_ed25519 must be base64 raw Ed25519 signature (64 bytes)`);
   }
   assert(releaseVersions.has(plugin.latest), `plugin ${plugin.id} latest must match one release version`);
 }
 
 for (const sig of data.signatures) {
   assert(publishers.has(sig.publisher), `index signature references unknown publisher ${sig.publisher}`);
-  assert(isBase64(sig.signature_ed25519), `index signature for ${sig.publisher} must be base64`);
+  assert(isBase64Bytes(sig.signature_ed25519, 64), `index signature for ${sig.publisher} must be base64 raw Ed25519 signature (64 bytes)`);
 }
 
 console.log(`plugin-index: ${path.basename(file)} ok (${data.plugins.length} plugins)`);

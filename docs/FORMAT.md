@@ -35,6 +35,8 @@ Publisher IDs use the same conservative id shape as plugin IDs:
 [a-z0-9][a-z0-9._-]{1,78}[a-z0-9]
 ```
 
+`public_key_ed25519` is standard base64 over the raw 32-byte Ed25519 public key.
+
 ## Plugin
 
 ```json
@@ -83,6 +85,7 @@ that plugin.
 
 URLs must be HTTPS and must not contain userinfo or fragments. Artifacts are
 trusted only after digest verification and manifest signature verification.
+`signature_ed25519` is standard base64 over the raw 64-byte Ed25519 signature.
 
 ## Canonicalization
 

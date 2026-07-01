@@ -7,11 +7,11 @@ import { spawnSync } from "node:child_process";
 const root = path.resolve(import.meta.dirname, "..");
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "lattice-plugin-index-test-"));
 
-try {
-  const unsignedOfficial = {
+function baseIndex() {
+  return {
     schema: "lattice.plugin.index.v1",
     generated_at: "2026-06-15T00:00:00Z",
-    status: "official",
+    status: "draft",
     publishers: [
       {
         id: "latticenet",
@@ -19,22 +19,67 @@ try {
         public_key_ed25519: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
       },
     ],
-    plugins: [],
+    plugins: [
+      {
+        id: "latticenet.test",
+        name: "Test Plugin",
+        publisher: "latticenet",
+        type: "system",
+        summary: "Contract test plugin.",
+        latest: "0.1.0",
+        capabilities: ["node:read"],
+        releases: [
+          {
+            version: "0.1.0",
+            manifest_url: "https://plugins.latticenet.invalid/test/0.1.0/manifest.json",
+            artifact_url: "https://plugins.latticenet.invalid/test/0.1.0/artifact",
+            artifact_sha256: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+            signature_ed25519: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+          },
+        ],
+      },
+    ],
     signatures: [],
   };
-  const file = path.join(tmp, "unsigned-official.json");
-  fs.writeFileSync(file, JSON.stringify(unsignedOfficial, null, 2));
-  const result = spawnSync(process.execPath, [path.join(root, "scripts/validate-index.mjs"), file], {
+}
+
+function runValidator(name, value) {
+  const file = path.join(tmp, `${name}.json`);
+  fs.writeFileSync(file, JSON.stringify(value, null, 2));
+  return spawnSync(process.execPath, [path.join(root, "scripts/validate-index.mjs"), file], {
     cwd: root,
     encoding: "utf8",
   });
+}
+
+function expectReject(name, value, message) {
+  const result = runValidator(name, value);
   if (result.status === 0) {
-    throw new Error("unsigned official index was accepted");
+    throw new Error(`${name} was accepted`);
   }
   const output = `${result.stdout}\n${result.stderr}`;
-  if (!output.includes("official indexes require at least one signature")) {
-    throw new Error(`unexpected validator output:\n${output}`);
+  if (!output.includes(message)) {
+    throw new Error(`${name} unexpected validator output:\n${output}`);
   }
+}
+
+try {
+  const unsignedOfficial = baseIndex();
+  unsignedOfficial.status = "official";
+  expectReject("unsigned-official", unsignedOfficial, "official indexes require at least one signature");
+
+  const staleLatest = baseIndex();
+  staleLatest.plugins[0].latest = "0.2.0";
+  expectReject("stale-latest", staleLatest, "plugin latticenet.test latest must match one release version");
+
+  const duplicateRelease = baseIndex();
+  duplicateRelease.plugins[0].releases.push({
+    ...duplicateRelease.plugins[0].releases[0],
+    manifest_url: "https://plugins.latticenet.invalid/test/duplicate/manifest.json",
+    artifact_url: "https://plugins.latticenet.invalid/test/duplicate/artifact",
+  });
+  expectReject("duplicate-release", duplicateRelease, "plugin latticenet.test release version duplicated: 0.1.0");
+
   console.log("plugin-index: validator contracts ok");
 } finally {
   fs.rmSync(tmp, { recursive: true, force: true });

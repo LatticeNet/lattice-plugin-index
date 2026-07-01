@@ -46,7 +46,15 @@ Publisher IDs use the same conservative id shape as plugin IDs:
   "summary": "Plan and apply reviewed sing-box configs on selected nodes.",
   "latest": "0.1.0",
   "capabilities": ["node:read", "network:plan", "network:apply"],
-  "releases": []
+  "releases": [
+    {
+      "version": "0.1.0",
+      "manifest_url": "https://example.invalid/plugin/manifest.json",
+      "artifact_url": "https://example.invalid/plugin/artifact",
+      "artifact_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "signature_ed25519": "base64-plugin-manifest-signature"
+    }
+  ]
 }
 ```
 
@@ -57,7 +65,9 @@ Types:
 - `wasm`
 
 Capabilities must be recognized by the server-side plugin verifier. Unknown
-capabilities are invalid.
+capabilities are invalid. Each plugin must publish at least one release, `latest`
+must match one listed release version, and release versions must be unique within
+that plugin.
 
 ## Release
 

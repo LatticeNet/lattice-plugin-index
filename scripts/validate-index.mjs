@@ -86,6 +86,7 @@ for (const plugin of data.plugins) {
   assert(typeof plugin.name === "string" && plugin.name.trim() !== "", `plugin ${plugin.id} name is required`);
   assert(publishers.has(plugin.publisher), `plugin ${plugin.id} references unknown publisher ${plugin.publisher}`);
   assert(["system", "worker", "wasm"].includes(plugin.type), `plugin ${plugin.id} type is invalid`);
+  assert(versionRe.test(plugin.latest || ""), `plugin ${plugin.id} latest version is invalid`);
   assert(Array.isArray(plugin.capabilities) && plugin.capabilities.length > 0, `plugin ${plugin.id} capabilities are required`);
   const seenCaps = new Set();
   for (const cap of plugin.capabilities) {
@@ -94,13 +95,18 @@ for (const plugin of data.plugins) {
     seenCaps.add(cap);
   }
   assert(Array.isArray(plugin.releases), `plugin ${plugin.id} releases must be an array`);
+  assert(plugin.releases.length > 0, `plugin ${plugin.id} releases must include at least one release`);
+  const releaseVersions = new Set();
   for (const release of plugin.releases) {
     assert(versionRe.test(release.version || ""), `plugin ${plugin.id} release version is invalid`);
+    assert(!releaseVersions.has(release.version), `plugin ${plugin.id} release version duplicated: ${release.version}`);
+    releaseVersions.add(release.version);
     assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/fragment`);
     assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/fragment`);
     assert(sha256Re.test(release.artifact_sha256 || ""), `plugin ${plugin.id} release artifact_sha256 must be lowercase SHA-256`);
     assert(isBase64(release.signature_ed25519), `plugin ${plugin.id} release signature_ed25519 must be base64`);
   }
+  assert(releaseVersions.has(plugin.latest), `plugin ${plugin.id} latest must match one release version`);
 }
 
 for (const sig of data.signatures) {

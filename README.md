@@ -38,6 +38,11 @@ npm run check
 npm run check:examples
 ```
 
+Before adding or changing a GitHub-hosted release, verify the release exists and
+the `manifest_url` / `artifact_url` paths match the actual asset names in
+GitHub Releases. The structural validator intentionally stays offline; it proves
+shape, signatures, and URL hygiene, not remote asset existence.
+
 ## Repository Publishing
 
 This repository is designed to be mirrored through GitHub Pages or raw GitHub

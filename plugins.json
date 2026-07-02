@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-06-30T00:00:00Z",
+  "generated_at": "2026-07-02T00:00:00Z",
   "status": "draft",
   "publishers": [
     {
@@ -27,7 +27,7 @@
         {
           "version": "0.7.1",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/artifact",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/lattice-plugin-vpn-core",
           "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
           "signature_ed25519": "UwZMGVfXf4pBPXmP3oPAwoEEBuSJImVbSs046U4fqv0o/rqxHZ+z9aTUs5+vLJ4wpuOZGKGX4O/7AjU172oHBQ=="
         },
@@ -44,27 +44,6 @@
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.6.0/artifact",
           "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
           "signature_ed25519": "Zs5TUbRJ5nylOiNI8Ex+o+oJjIRzLjwJRy/eFm/pypyut7YLcVfoSC4Jbtk2Mmhb6zd9JbxWxcx1HRCw/y3rCA=="
-        },
-        {
-          "version": "0.5.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.5.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.5.0/artifact",
-          "artifact_sha256": "d75effe7a2ed65608f2604cc92b46053d8a994418daf218ca95e41e2f404c3f7",
-          "signature_ed25519": "M6XEW0vu3ICcMbD6A5RF35gY1m19kdfycyCSQF17r7vgsDYFRd4cAF40VVgRkJNVMxDvPRWLebQyY+7lHcJ/Dg=="
-        },
-        {
-          "version": "0.4.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.4.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.4.0/artifact",
-          "artifact_sha256": "d75effe7a2ed65608f2604cc92b46053d8a994418daf218ca95e41e2f404c3f7",
-          "signature_ed25519": "wUXPZPD+Qq/FSiN+1ZAWzvWPrLKkqIoFEDRb+9T3gL8jr3MMo2rMTgPTaxHDn/jrlJrLdUQcbFXCxj1aSp5RAQ=="
-        },
-        {
-          "version": "0.3.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.3.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.3.0/artifact",
-          "artifact_sha256": "d75effe7a2ed65608f2604cc92b46053d8a994418daf218ca95e41e2f404c3f7",
-          "signature_ed25519": "Bw+UzE28Q7U773zAG45+SBUT/gQLvgwOYG3zqtGLglmYQu1QvDGzbzYVJ3PsN+AA97MkJCLXQiv5S1LDCo90Aw=="
         },
         {
           "version": "0.2.0",
@@ -102,13 +81,6 @@
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.0/artifact",
           "artifact_sha256": "102563cf81df0e575abad409dbec2da99ec0ec05e6c72f298fbe314f05d280b5",
           "signature_ed25519": "ZNVXX/iMTUfOpdsC1fBn79B0G68KnuYuY3mECRsRDSFxedOdLQ/dTpGwBThUreBocUrP76O5BP/IjYBqPQ8DDQ=="
-        },
-        {
-          "version": "0.2.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.2.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.2.0/artifact",
-          "artifact_sha256": "d0c3dca5e34eeebf4ab23432e8c464afe49cf680907ecb5b579181ad2d2c12b9",
-          "signature_ed25519": "0B/Pacc4cAvhpLCGzYMXmeTlfo3BPZ6iM/SPXnKajWYfKMPMaZSRWQZA4cMBeYNyib4ZplPsiXZ9L6N36pBvDw=="
         },
         {
           "version": "0.1.0",

@@ -72,6 +72,16 @@ try {
   staleLatest.plugins[0].latest = "0.2.0";
   expectReject("stale-latest", staleLatest, "plugin latticenet.test latest must match one release version");
 
+  const latestNotFirst = baseIndex();
+  latestNotFirst.plugins[0].latest = "0.2.0";
+  latestNotFirst.plugins[0].releases.push({
+    ...latestNotFirst.plugins[0].releases[0],
+    version: "0.2.0",
+    manifest_url: "https://plugins.latticenet.invalid/test/0.2.0/manifest.json",
+    artifact_url: "https://plugins.latticenet.invalid/test/0.2.0/artifact",
+  });
+  expectReject("latest-not-first", latestNotFirst, "plugin latticenet.test first release must match latest");
+
   const duplicateRelease = baseIndex();
   duplicateRelease.plugins[0].releases.push({
     ...duplicateRelease.plugins[0].releases[0],
@@ -87,6 +97,10 @@ try {
   const shortReleaseSignature = baseIndex();
   shortReleaseSignature.plugins[0].releases[0].signature_ed25519 = Buffer.alloc(63).toString("base64");
   expectReject("short-release-signature", shortReleaseSignature, "plugin latticenet.test release signature_ed25519 must be base64 raw Ed25519 signature (64 bytes)");
+
+  const queryArtifactURL = baseIndex();
+  queryArtifactURL.plugins[0].releases[0].artifact_url = "https://plugins.latticenet.invalid/test/0.1.0/artifact?token=secret";
+  expectReject("query-artifact-url", queryArtifactURL, "plugin latticenet.test release artifact_url must be HTTPS without userinfo/query/fragment");
 
   const shortIndexSignature = baseIndex();
   shortIndexSignature.status = "official";

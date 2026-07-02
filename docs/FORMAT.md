@@ -68,8 +68,8 @@ Types:
 
 Capabilities must be recognized by the server-side plugin verifier. Unknown
 capabilities are invalid. Each plugin must publish at least one release, `latest`
-must match one listed release version, and release versions must be unique within
-that plugin.
+must match one listed release version, the first release entry must be that
+`latest` version, and release versions must be unique within that plugin.
 
 ## Release
 
@@ -83,8 +83,8 @@ that plugin.
 }
 ```
 
-URLs must be HTTPS and must not contain userinfo or fragments. Artifacts are
-trusted only after digest verification and manifest signature verification.
+URLs must be HTTPS and must not contain userinfo, query strings, or fragments.
+Artifacts are trusted only after digest verification and manifest signature verification.
 `signature_ed25519` is standard base64 over the raw 64-byte Ed25519 signature.
 
 ## Canonicalization

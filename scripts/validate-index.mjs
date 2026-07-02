@@ -45,7 +45,7 @@ function assert(condition, message) {
 function isHTTPURL(value) {
   try {
     const u = new URL(value);
-    return u.protocol === "https:" && !!u.hostname && !u.username && !u.password && !u.hash;
+    return u.protocol === "https:" && !!u.hostname && !u.username && !u.password && !u.search && !u.hash;
   } catch {
     return false;
   }
@@ -105,13 +105,14 @@ for (const plugin of data.plugins) {
   }
   assert(Array.isArray(plugin.releases), `plugin ${plugin.id} releases must be an array`);
   assert(plugin.releases.length > 0, `plugin ${plugin.id} releases must include at least one release`);
+  assert(plugin.releases[0].version === plugin.latest, `plugin ${plugin.id} first release must match latest`);
   const releaseVersions = new Set();
   for (const release of plugin.releases) {
     assert(versionRe.test(release.version || ""), `plugin ${plugin.id} release version is invalid`);
     assert(!releaseVersions.has(release.version), `plugin ${plugin.id} release version duplicated: ${release.version}`);
     releaseVersions.add(release.version);
-    assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/fragment`);
-    assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/fragment`);
+    assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/query/fragment`);
+    assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/query/fragment`);
     assert(sha256Re.test(release.artifact_sha256 || ""), `plugin ${plugin.id} release artifact_sha256 must be lowercase SHA-256`);
     assert(isBase64Bytes(release.signature_ed25519, 64), `plugin ${plugin.id} release signature_ed25519 must be base64 raw Ed25519 signature (64 bytes)`);
   }

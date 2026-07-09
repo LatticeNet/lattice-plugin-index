@@ -1,12 +1,12 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-02T00:00:00Z",
+  "generated_at": "2026-07-09T12:59:58Z",
   "status": "draft",
   "publishers": [
     {
       "id": "latticenet",
       "name": "LatticeNet",
-      "public_key_ed25519": "ghmeKHjYjv3uFIN7nMw5iEHWNq8m6ZBm4c1exO7BWtk="
+      "public_key_ed25519": "Ex4sJBNHgemwqhtaBwuoOf4Zg3iz5kojM+JeWBcDo40="
     }
   ],
   "plugins": [
@@ -16,7 +16,7 @@
       "publisher": "latticenet",
       "type": "system",
       "summary": "sing-box proxy manager (live system plugin): unified Lines, VPN identities (email + per-protocol credential set, bound to many lines), per-node runtime profiles, 3-D usage, producer-side subscriptions, and dashboard-owned VPN Manage views.",
-      "latest": "0.7.1",
+      "latest": "0.7.2",
       "capabilities": [
         "node:read",
         "network:plan",
@@ -25,39 +25,11 @@
       ],
       "releases": [
         {
-          "version": "0.7.1",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.1/lattice-plugin-vpn-core",
-          "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
-          "signature_ed25519": "UwZMGVfXf4pBPXmP3oPAwoEEBuSJImVbSs046U4fqv0o/rqxHZ+z9aTUs5+vLJ4wpuOZGKGX4O/7AjU172oHBQ=="
-        },
-        {
-          "version": "0.7.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.0/artifact",
-          "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
-          "signature_ed25519": "MrfMH2tjIaiHJNvFFmgoGzXCHblx/QegStsqdIAdZ103ZpoaQaBIROudm/M3MqHYONPEHzlBwRMwhxOjq5/qDw=="
-        },
-        {
-          "version": "0.6.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.6.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.6.0/artifact",
-          "artifact_sha256": "abbd38440fd8e2d028c0fa14bcfd90cd83c6929dbadbd7d48690394a611d20a8",
-          "signature_ed25519": "Zs5TUbRJ5nylOiNI8Ex+o+oJjIRzLjwJRy/eFm/pypyut7YLcVfoSC4Jbtk2Mmhb6zd9JbxWxcx1HRCw/y3rCA=="
-        },
-        {
-          "version": "0.2.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.2.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.2.0/artifact",
-          "artifact_sha256": "7839b5035db208d21c1271bda30e361fe7bd41a97e55811c428f1422bdb876e7",
-          "signature_ed25519": "f6DfDLyaymzB7BNDerLFgPZePHahg83RbgBQ32pddbp1UejsC4xEHvw5ZPlD8/d+m4jalkrHQkVtS02ho9C5Dw=="
-        },
-        {
-          "version": "0.1.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.1.0/artifact",
-          "artifact_sha256": "7839b5035db208d21c1271bda30e361fe7bd41a97e55811c428f1422bdb876e7",
-          "signature_ed25519": "EgD/qtpXozzhb3mNXNqK0Pe4HYduw+Q4rU4x7ifZQmtQmE3RvkkAaHntomRpE8r2HkywKfxNk0FlVXWHtALhBw=="
+          "version": "0.7.2",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/lattice-plugin-vpn-core",
+          "artifact_sha256": "9df681f816344dba48321f678ff1e487c04da063340b252f3edcccc117ffbc35",
+          "signature_ed25519": "6Q72nFvFU+joTUNDTqTWzmiPFKjl7cKPLrvHaNRskjYkbK7Zn5IesVXfAtn426//BQh1Auw2Ye+etfYq223aBQ=="
         }
       ]
     },
@@ -67,7 +39,7 @@
       "publisher": "latticenet",
       "type": "system",
       "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription and contributes the Sub-Store dashboard view under VPN Manage.",
-      "latest": "0.3.0",
+      "latest": "0.3.1",
       "capabilities": [
         "rpc:call",
         "http:egress",
@@ -76,18 +48,57 @@
       ],
       "releases": [
         {
-          "version": "0.3.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.0/artifact",
-          "artifact_sha256": "102563cf81df0e575abad409dbec2da99ec0ec05e6c72f298fbe314f05d280b5",
-          "signature_ed25519": "ZNVXX/iMTUfOpdsC1fBn79B0G68KnuYuY3mECRsRDSFxedOdLQ/dTpGwBThUreBocUrP76O5BP/IjYBqPQ8DDQ=="
-        },
+          "version": "0.3.1",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.1/lattice-plugin-sub-store",
+          "artifact_sha256": "938411858c968d3783cee37730f7de184277a925665fc22f082cd2e05eccad3f",
+          "signature_ed25519": "j2/MqJBER3ZZuTM66CGDRizX/HsNb0IjBmNLzKPBgZELk0F50EuisZjKWALWWvDFxL9bifjIEjIG/DyIBHpEDQ=="
+        }
+      ]
+    },
+    {
+      "id": "latticenet.netguard",
+      "publisher": "latticenet",
+      "type": "system",
+      "name": "netguard (nftables security groups)",
+      "summary": "nftables security-group firewall manager: plugin-owned Network Security dashboard surface backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
+      "latest": "0.1.0-alpha.2",
+      "capabilities": [
+        "node:read",
+        "network:plan",
+        "network:apply",
+        "task:run"
+      ],
+      "releases": [
         {
-          "version": "0.1.0",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.1.0/artifact",
-          "artifact_sha256": "18d9655867e3bfeb0923679db59937fe749e335144ebe6b0273c008ab7a3ffdd",
-          "signature_ed25519": "YIaCXLcJwSwnwk3bXIYd+WLRnxq1j67YmrHI9eEgG5qgb5YCh6kBANJuv75ENebhGwbxB0KcSl29dLX2+ryICQ=="
+          "version": "0.1.0-alpha.2",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.2/lattice-plugin-netguard",
+          "artifact_sha256": "e6b3c13ce7ecbbb3bda8f2926b96048639485ac3198c05aa00d053cc3bf433bf",
+          "signature_ed25519": "0Y0bBILdkktlAzqIMbzP64G0MC8I8o3d+HQvZMFbtpa6XwZwpbXH+mQZFNTPOf0mjKxxUeF0Ppq0sIYzQLMDAA=="
+        }
+      ]
+    },
+    {
+      "id": "latticenet.wireguard",
+      "publisher": "latticenet",
+      "type": "system",
+      "name": "wireguard (VPN networks)",
+      "summary": "WireGuard networks manager: plugin-owned Network Security dashboard surface backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
+      "latest": "0.1.0-alpha.2",
+      "capabilities": [
+        "node:read",
+        "network:plan",
+        "network:apply",
+        "task:run"
+      ],
+      "releases": [
+        {
+          "version": "0.1.0-alpha.2",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.2/lattice-plugin-wireguard",
+          "artifact_sha256": "c54b1af7358d0ca95c078ac56cbff522fb3682d99b5944046d109705546eaf2d",
+          "signature_ed25519": "Ec/k9LQNHWrLuGnnPVWMNIE0tfIzpgvQ7rxRiqFunhFKcFT32xfGtJ9WfGFUROoUWb4l71NiBBzY/cx+KoY8AQ=="
         }
       ]
     }

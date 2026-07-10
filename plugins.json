@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-09T12:59:58Z",
+  "generated_at": "2026-07-10T09:56:18Z",
   "status": "draft",
   "publishers": [
     {
@@ -62,7 +62,7 @@
       "type": "system",
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager: plugin-owned Network Security dashboard surface backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
-      "latest": "0.1.0-alpha.2",
+      "latest": "0.1.0-alpha.5",
       "capabilities": [
         "node:read",
         "network:plan",
@@ -71,11 +71,11 @@
       ],
       "releases": [
         {
-          "version": "0.1.0-alpha.2",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.2/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.2/lattice-plugin-netguard",
-          "artifact_sha256": "e6b3c13ce7ecbbb3bda8f2926b96048639485ac3198c05aa00d053cc3bf433bf",
-          "signature_ed25519": "0Y0bBILdkktlAzqIMbzP64G0MC8I8o3d+HQvZMFbtpa6XwZwpbXH+mQZFNTPOf0mjKxxUeF0Ppq0sIYzQLMDAA=="
+          "version": "0.1.0-alpha.5",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.5/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.5/lattice-plugin-netguard",
+          "artifact_sha256": "038861751b2cb16f728790e27464ce9d8495e156b6c33fe968298a0f822361e8",
+          "signature_ed25519": "0b8kDln2puH0OpM9H/gMOgJXfel2dOkyhQyXw9FxUybVnXeYRJv9It0xylS+LPpb3T3j0twpR9c19ATdebl7DA=="
         }
       ]
     },
@@ -85,7 +85,7 @@
       "type": "system",
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager: plugin-owned Network Security dashboard surface backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
-      "latest": "0.1.0-alpha.2",
+      "latest": "0.1.0-alpha.5",
       "capabilities": [
         "node:read",
         "network:plan",
@@ -94,11 +94,11 @@
       ],
       "releases": [
         {
-          "version": "0.1.0-alpha.2",
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.2/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.2/lattice-plugin-wireguard",
-          "artifact_sha256": "c54b1af7358d0ca95c078ac56cbff522fb3682d99b5944046d109705546eaf2d",
-          "signature_ed25519": "Ec/k9LQNHWrLuGnnPVWMNIE0tfIzpgvQ7rxRiqFunhFKcFT32xfGtJ9WfGFUROoUWb4l71NiBBzY/cx+KoY8AQ=="
+          "version": "0.1.0-alpha.5",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.5/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.5/lattice-plugin-wireguard",
+          "artifact_sha256": "7bb5d837613a4e852151fa849ee18bf854d31e02e87b4b2e16d9d655d6f5e064",
+          "signature_ed25519": "jk8RPyUuzM4+JqQJj0UduKfqUUYkwZol+p7THxPdt8DoS/nu3wLignT//j5N9vIkhAPsm5fJhYbGQDhl1fmrBQ=="
         }
       ]
     }

@@ -5,6 +5,7 @@ import path from "node:path";
 const capabilitySet = new Set([
   "audit:read",
   "http:egress",
+  "http:operator-target",
   "kv:read",
   "kv:write",
   "log:write",
@@ -12,6 +13,8 @@ const capabilitySet = new Set([
   "monitor:admin",
   "netpolicy:read",
   "netpolicy:admin",
+  "netguard:read",
+  "netguard:admin",
   "node:read",
   "node:admin",
   "notify:send",
@@ -28,6 +31,7 @@ const capabilitySet = new Set([
   "rpc:expose",
 ]);
 const statusSet = new Set(["draft", "official", "example"]);
+const channelSet = new Set(["stable", "alpha"]);
 
 const idRe = /^[a-z0-9][a-z0-9._-]{1,78}[a-z0-9]$/;
 const versionRe = /^[A-Za-z0-9][A-Za-z0-9._+:-]{0,63}$/;
@@ -65,6 +69,20 @@ function isBase64Bytes(value, bytes) {
   return base64DecodedLength(value) === bytes;
 }
 
+function isAlphaVersion(version) {
+  return typeof version === "string" && /-alpha(?:[.-]|$)/i.test(version);
+}
+
+function validateCapabilities(pluginID, capabilities, context) {
+  assert(Array.isArray(capabilities) && capabilities.length > 0, `plugin ${pluginID} ${context} capabilities are required`);
+  const seenCaps = new Set();
+  for (const cap of capabilities || []) {
+    assert(capabilitySet.has(cap), `plugin ${pluginID} ${context} capability is unknown: ${cap}`);
+    assert(!seenCaps.has(cap), `plugin ${pluginID} ${context} duplicates capability: ${cap}`);
+    seenCaps.add(cap);
+  }
+}
+
 const file = process.argv[2] || "plugins.json";
 const raw = fs.readFileSync(file, "utf8");
 const data = JSON.parse(raw);
@@ -95,28 +113,50 @@ for (const plugin of data.plugins) {
   assert(typeof plugin.name === "string" && plugin.name.trim() !== "", `plugin ${plugin.id} name is required`);
   assert(publishers.has(plugin.publisher), `plugin ${plugin.id} references unknown publisher ${plugin.publisher}`);
   assert(["system", "worker", "wasm"].includes(plugin.type), `plugin ${plugin.id} type is invalid`);
-  assert(versionRe.test(plugin.latest || ""), `plugin ${plugin.id} latest version is invalid`);
-  assert(Array.isArray(plugin.capabilities) && plugin.capabilities.length > 0, `plugin ${plugin.id} capabilities are required`);
-  const seenCaps = new Set();
-  for (const cap of plugin.capabilities) {
-    assert(capabilitySet.has(cap), `plugin ${plugin.id} capability is unknown: ${cap}`);
-    assert(!seenCaps.has(cap), `plugin ${plugin.id} duplicates capability: ${cap}`);
-    seenCaps.add(cap);
+  assert(plugin.channels && typeof plugin.channels === "object" && !Array.isArray(plugin.channels), `plugin ${plugin.id} channels are required`);
+  const channelNames = Object.keys(plugin.channels || {});
+  assert(channelNames.length > 0, `plugin ${plugin.id} channels must not be empty`);
+  for (const channel of channelNames) {
+    assert(channelSet.has(channel), `plugin ${plugin.id} channel is unknown: ${channel}`);
+    assert(versionRe.test(plugin.channels[channel] || ""), `plugin ${plugin.id} ${channel} channel version is invalid`);
   }
+  if (plugin.channels?.stable !== undefined) {
+    assert(!isAlphaVersion(plugin.channels.stable), `plugin ${plugin.id} stable channel cannot select a prerelease`);
+  }
+  if (plugin.channels?.alpha !== undefined) {
+    assert(isAlphaVersion(plugin.channels.alpha), `plugin ${plugin.id} alpha channel must select an alpha prerelease`);
+  }
+  if (plugin.latest !== undefined) {
+    assert(versionRe.test(plugin.latest), `plugin ${plugin.id} latest version is invalid`);
+    assert(plugin.channels?.stable === plugin.latest, `plugin ${plugin.id} latest is a legacy stable alias and must match channels.stable`);
+  }
+  validateCapabilities(plugin.id, plugin.capabilities, "default");
   assert(Array.isArray(plugin.releases), `plugin ${plugin.id} releases must be an array`);
   assert(plugin.releases.length > 0, `plugin ${plugin.id} releases must include at least one release`);
-  assert(plugin.releases[0].version === plugin.latest, `plugin ${plugin.id} first release must match latest`);
   const releaseVersions = new Set();
+  const releaseByVersion = new Map();
   for (const release of plugin.releases) {
     assert(versionRe.test(release.version || ""), `plugin ${plugin.id} release version is invalid`);
     assert(!releaseVersions.has(release.version), `plugin ${plugin.id} release version duplicated: ${release.version}`);
     releaseVersions.add(release.version);
+    releaseByVersion.set(release.version, release);
+    assert(channelSet.has(release.channel), `plugin ${plugin.id} release ${release.version} channel is invalid`);
+    if (release.channel === "stable") {
+      assert(!isAlphaVersion(release.version), `plugin ${plugin.id} stable release ${release.version} cannot be a prerelease`);
+    } else {
+      assert(isAlphaVersion(release.version), `plugin ${plugin.id} alpha release ${release.version} must be an alpha prerelease`);
+    }
+    if (release.capabilities !== undefined) validateCapabilities(plugin.id, release.capabilities, `release ${release.version}`);
     assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/query/fragment`);
     assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/query/fragment`);
     assert(sha256Re.test(release.artifact_sha256 || ""), `plugin ${plugin.id} release artifact_sha256 must be lowercase SHA-256`);
     assert(isBase64Bytes(release.signature_ed25519, 64), `plugin ${plugin.id} release signature_ed25519 must be base64 raw Ed25519 signature (64 bytes)`);
   }
-  assert(releaseVersions.has(plugin.latest), `plugin ${plugin.id} latest must match one release version`);
+  for (const [channel, version] of Object.entries(plugin.channels || {})) {
+    const release = releaseByVersion.get(version);
+    assert(!!release, `plugin ${plugin.id} ${channel} channel must match one release version`);
+    assert(release?.channel === channel, `plugin ${plugin.id} ${channel} channel points to a ${release?.channel || "missing"} release`);
+  }
 }
 
 for (const sig of data.signatures) {

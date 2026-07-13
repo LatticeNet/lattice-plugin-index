@@ -7,6 +7,7 @@ Current status:
 ```txt
 draft index + structural validator
 signed plugin releases listed for integration testing
+stable and alpha channels are explicit; prereleases never replace stable latest
 no signed official top-level index yet
 no server-side remote install yet
 ```
@@ -42,6 +43,10 @@ Before adding or changing a GitHub-hosted release, verify the release exists and
 the `manifest_url` / `artifact_url` paths match the actual asset names in
 GitHub Releases. The structural validator intentionally stays offline; it proves
 shape, signatures, and URL hygiene, not remote asset existence.
+
+`latest` is retained only as a backwards-compatible stable alias. New clients
+must resolve `channels.stable` by default and require an explicit operator choice
+for `channels.alpha`.
 
 ## Repository Publishing
 

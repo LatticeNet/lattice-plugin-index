@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-10T09:56:18Z",
+  "generated_at": "2026-07-13T09:41:51Z",
   "status": "draft",
   "publishers": [
     {
@@ -17,6 +17,9 @@
       "type": "system",
       "summary": "sing-box proxy manager (live system plugin): unified Lines, VPN identities (email + per-protocol credential set, bound to many lines), per-node runtime profiles, 3-D usage, producer-side subscriptions, and dashboard-owned VPN Manage views.",
       "latest": "0.7.2",
+      "channels": {
+        "stable": "0.7.2"
+      },
       "capabilities": [
         "node:read",
         "network:plan",
@@ -26,6 +29,7 @@
       "releases": [
         {
           "version": "0.7.2",
+          "channel": "stable",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/lattice-plugin-vpn-core",
           "artifact_sha256": "9df681f816344dba48321f678ff1e487c04da063340b252f3edcccc117ffbc35",
@@ -38,8 +42,12 @@
       "name": "Sub-Store companion",
       "publisher": "latticenet",
       "type": "system",
-      "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription and contributes the Sub-Store dashboard view under VPN Manage.",
+      "summary": "Sub-Store companion: imports vpn-core nodes into a managed Sub-Store subscription. The alpha channel is a self-contained signed bundle with its own sandboxed Extensions UI.",
       "latest": "0.3.1",
+      "channels": {
+        "stable": "0.3.1",
+        "alpha": "0.3.2-alpha.1"
+      },
       "capabilities": [
         "rpc:call",
         "http:egress",
@@ -48,7 +56,20 @@
       ],
       "releases": [
         {
+          "version": "0.3.2-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:operator-target"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.1/lattice-plugin-sub-store-v0.3.2-alpha.1.tar.gz",
+          "artifact_sha256": "4c4a511718286b11320a03b3ae69217d528b6dc5d2b52b2ac34b743a1b835eda",
+          "signature_ed25519": "f/SZDZaq0lEF7uN36pqtMIwhDXFKRwmjyOW/YN92DDFFnLDtEwSV5P8lgOacU4p0uYfWL9jbyTqE68RpLuf4DQ=="
+        },
+        {
           "version": "0.3.1",
+          "channel": "stable",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.1/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.1/lattice-plugin-sub-store",
           "artifact_sha256": "938411858c968d3783cee37730f7de184277a925665fc22f082cd2e05eccad3f",
@@ -62,7 +83,9 @@
       "type": "system",
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager: plugin-owned Network Security dashboard surface backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
-      "latest": "0.1.0-alpha.5",
+      "channels": {
+        "alpha": "0.1.0-alpha.5"
+      },
       "capabilities": [
         "node:read",
         "network:plan",
@@ -72,6 +95,7 @@
       "releases": [
         {
           "version": "0.1.0-alpha.5",
+          "channel": "alpha",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.5/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.5/lattice-plugin-netguard",
           "artifact_sha256": "038861751b2cb16f728790e27464ce9d8495e156b6c33fe968298a0f822361e8",
@@ -85,7 +109,9 @@
       "type": "system",
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager: plugin-owned Network Security dashboard surface backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
-      "latest": "0.1.0-alpha.5",
+      "channels": {
+        "alpha": "0.1.0-alpha.5"
+      },
       "capabilities": [
         "node:read",
         "network:plan",
@@ -95,6 +121,7 @@
       "releases": [
         {
           "version": "0.1.0-alpha.5",
+          "channel": "alpha",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.5/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.5/lattice-plugin-wireguard",
           "artifact_sha256": "7bb5d837613a4e852151fa849ee18bf854d31e02e87b4b2e16d9d655d6f5e064",

@@ -47,10 +47,12 @@ Publisher IDs use the same conservative id shape as plugin IDs:
   "type": "system",
   "summary": "Plan and apply reviewed sing-box configs on selected nodes.",
   "latest": "0.1.0",
+  "channels": {"stable": "0.1.0"},
   "capabilities": ["node:read", "network:plan", "network:apply"],
   "releases": [
     {
       "version": "0.1.0",
+      "channel": "stable",
       "manifest_url": "https://example.invalid/plugin/manifest.json",
       "artifact_url": "https://example.invalid/plugin/artifact",
       "artifact_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
@@ -67,15 +69,19 @@ Types:
 - `wasm`
 
 Capabilities must be recognized by the server-side plugin verifier. Unknown
-capabilities are invalid. Each plugin must publish at least one release, `latest`
-must match one listed release version, the first release entry must be that
-`latest` version, and release versions must be unique within that plugin.
+capabilities are invalid. Each plugin must publish at least one release and a
+`channels` map. Supported channels are `stable` and `alpha`; every channel must
+point to a same-channel release. `stable` may not select a prerelease and
+`alpha` must select a `-alpha` version. The optional legacy `latest` field is a
+stable-only compatibility alias and, when present, must equal
+`channels.stable`. A plugin with only alpha releases omits `latest` entirely.
 
 ## Release
 
 ```json
 {
   "version": "0.1.0",
+  "channel": "stable",
   "manifest_url": "https://example.invalid/plugin/manifest.json",
   "artifact_url": "https://example.invalid/plugin/artifact",
   "artifact_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
@@ -86,6 +92,8 @@ must match one listed release version, the first release entry must be that
 URLs must be HTTPS and must not contain userinfo, query strings, or fragments.
 Artifacts are trusted only after digest verification and manifest signature verification.
 `signature_ed25519` is standard base64 over the raw 64-byte Ed25519 signature.
+An optional release-level `capabilities` array records channel-specific changes;
+the signed manifest remains authoritative at installation time.
 
 ## Canonicalization
 

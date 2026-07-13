@@ -17,10 +17,14 @@
       "type": "system",
       "summary": "Plan and apply reviewed sing-box configs on selected nodes.",
       "latest": "0.1.0",
+      "channels": {
+        "stable": "0.1.0"
+      },
       "capabilities": ["node:read", "network:plan", "network:apply"],
       "releases": [
         {
           "version": "0.1.0",
+          "channel": "stable",
           "manifest_url": "https://plugins.latticenet.invalid/latticenet.sing-box/0.1.0/manifest.json",
           "artifact_url": "https://plugins.latticenet.invalid/latticenet.sing-box/0.1.0/artifact",
           "artifact_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",

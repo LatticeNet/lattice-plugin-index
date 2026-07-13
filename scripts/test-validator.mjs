@@ -27,10 +27,12 @@ function baseIndex() {
         type: "system",
         summary: "Contract test plugin.",
         latest: "0.1.0",
+        channels: { stable: "0.1.0" },
         capabilities: ["node:read"],
         releases: [
           {
             version: "0.1.0",
+            channel: "stable",
             manifest_url: "https://plugins.latticenet.invalid/test/0.1.0/manifest.json",
             artifact_url: "https://plugins.latticenet.invalid/test/0.1.0/artifact",
             artifact_sha256: "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
@@ -70,17 +72,31 @@ try {
 
   const staleLatest = baseIndex();
   staleLatest.plugins[0].latest = "0.2.0";
-  expectReject("stale-latest", staleLatest, "plugin latticenet.test latest must match one release version");
+  staleLatest.plugins[0].channels.stable = "0.2.0";
+  expectReject("stale-latest", staleLatest, "stable channel must match one release version");
 
-  const latestNotFirst = baseIndex();
-  latestNotFirst.plugins[0].latest = "0.2.0";
-  latestNotFirst.plugins[0].releases.push({
-    ...latestNotFirst.plugins[0].releases[0],
-    version: "0.2.0",
-    manifest_url: "https://plugins.latticenet.invalid/test/0.2.0/manifest.json",
-    artifact_url: "https://plugins.latticenet.invalid/test/0.2.0/artifact",
+  const latestIsNotStableAlias = baseIndex();
+  latestIsNotStableAlias.plugins[0].latest = "0.2.0-alpha.1";
+  expectReject("latest-is-not-stable-alias", latestIsNotStableAlias, "latest is a legacy stable alias");
+
+  const stablePrerelease = baseIndex();
+  stablePrerelease.plugins[0].channels.stable = "0.2.0-alpha.1";
+  expectReject("stable-prerelease", stablePrerelease, "stable channel cannot select a prerelease");
+
+  const missingChannelRelease = baseIndex();
+  missingChannelRelease.plugins[0].channels.alpha = "0.2.0-alpha.1";
+  expectReject("missing-channel-release", missingChannelRelease, "alpha channel must match one release version");
+
+  const wrongReleaseChannel = baseIndex();
+  wrongReleaseChannel.plugins[0].channels.alpha = "0.2.0-alpha.1";
+  wrongReleaseChannel.plugins[0].releases.push({
+    ...wrongReleaseChannel.plugins[0].releases[0],
+    version: "0.2.0-alpha.1",
+    channel: "stable",
+    manifest_url: "https://plugins.latticenet.invalid/test/0.2.0-alpha.1/manifest.json",
+    artifact_url: "https://plugins.latticenet.invalid/test/0.2.0-alpha.1/artifact",
   });
-  expectReject("latest-not-first", latestNotFirst, "plugin latticenet.test first release must match latest");
+  expectReject("wrong-release-channel", wrongReleaseChannel, "stable release 0.2.0-alpha.1 cannot be a prerelease");
 
   const duplicateRelease = baseIndex();
   duplicateRelease.plugins[0].releases.push({

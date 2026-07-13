@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-13T15:36:25Z",
+  "generated_at": "2026-07-13T17:15:21Z",
   "status": "draft",
   "publishers": [
     {
@@ -15,10 +15,11 @@
       "name": "vpn-core (sing-box)",
       "publisher": "latticenet",
       "type": "system",
-      "summary": "sing-box proxy manager (live system plugin): unified Lines, VPN identities (email + per-protocol credential set, bound to many lines), per-node runtime profiles, 3-D usage, producer-side subscriptions, and dashboard-owned VPN Manage views.",
+      "summary": "sing-box proxy manager with plugin-owned sandbox pages for Lines, VPN identities, per-node runtime profiles, usage, and producer-side subscriptions.",
       "latest": "0.7.2",
       "channels": {
-        "stable": "0.7.2"
+        "stable": "0.7.2",
+        "alpha": "0.8.0-alpha.1"
       },
       "capabilities": [
         "node:read",
@@ -28,8 +29,28 @@
       ],
       "releases": [
         {
+          "version": "0.8.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.1/lattice-plugin-vpn-core",
+          "artifact_sha256": "0dd37845c55b190720ddbeeea94daff2d5768431e964377bf5a0ab95ccec4b96",
+          "signature_ed25519": "fqjO/C+wYtwpwa4j2TDGGPym8gSz4ev2qwy7bQL/wOCF3p8ocbTSsY7CiTKhdq9iG1WOrhuPA8n2bUdyJ9qHBg=="
+        },
+        {
           "version": "0.7.2",
           "channel": "stable",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.7.2/lattice-plugin-vpn-core",
           "artifact_sha256": "9df681f816344dba48321f678ff1e487c04da063340b252f3edcccc117ffbc35",
@@ -100,9 +121,9 @@
       "publisher": "latticenet",
       "type": "system",
       "name": "netguard (nftables security groups)",
-      "summary": "nftables security-group firewall manager: plugin-owned Network Security dashboard surface backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
+      "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.1.0-alpha.5"
+        "alpha": "0.1.0-alpha.6"
       },
       "capabilities": [
         "node:read",
@@ -111,6 +132,14 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.1.0-alpha.6",
+          "channel": "alpha",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.6/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.6/lattice-plugin-netguard",
+          "artifact_sha256": "a4c6e8428cf3ff18db125cbb8a8454076523136b885f21b2a5eeaf9dce723f50",
+          "signature_ed25519": "ae/PSm8uBpTglG7uWWb4xhXcJb607mubD7yDArnp78fLQUna3dlPvK7VYX9Z3dr9uBDGlpTXEAeglR6WBopdAw=="
+        },
         {
           "version": "0.1.0-alpha.5",
           "channel": "alpha",
@@ -126,9 +155,9 @@
       "publisher": "latticenet",
       "type": "system",
       "name": "wireguard (VPN networks)",
-      "summary": "WireGuard networks manager: plugin-owned Network Security dashboard surface backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
+      "summary": "WireGuard networks manager with plugin-owned Extensions UI backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.1.0-alpha.5"
+        "alpha": "0.1.0-alpha.6"
       },
       "capabilities": [
         "node:read",
@@ -137,6 +166,14 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.1.0-alpha.6",
+          "channel": "alpha",
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.6/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.6/lattice-plugin-wireguard",
+          "artifact_sha256": "cb633840d9e35a83387bd60f5f8363d9b28a08b142c5d3696f2ab6b304124b72",
+          "signature_ed25519": "CvDJY0kdaK/xlhdBN5If6K/REMTW+1Su0s/z83V7/Ro0t9xEqovYNuxEl8nu9M0fre7hqH7KH+BMLfpqu8YbCA=="
+        },
         {
           "version": "0.1.0-alpha.5",
           "channel": "alpha",

@@ -65,7 +65,7 @@
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.1/manifest.json",
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.1/lattice-plugin-sub-store-v0.3.2-alpha.1.tar.gz",
           "artifact_sha256": "4c4a511718286b11320a03b3ae69217d528b6dc5d2b52b2ac34b743a1b835eda",
-          "signature_ed25519": "f/SZDZaq0lEF7uN36pqtMIwhDXFKRwmjyOW/YN92DDFFnLDtEwSV5P8lgOacU4p0uYfWL9jbyTqE68RpLuf4DQ=="
+          "signature_ed25519": "chR1mHTfCwg1gWUywBqiewbKQXRFEhCbKXZnQZPPSvrZqZZQi1dohMcbwu7YQOlEva4f0hYSIpQx9vR4YGjbDg=="
         },
         {
           "version": "0.3.1",

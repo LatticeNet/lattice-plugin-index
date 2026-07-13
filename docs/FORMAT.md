@@ -92,8 +92,11 @@ stable-only compatibility alias and, when present, must equal
 URLs must be HTTPS and must not contain userinfo, query strings, or fragments.
 Artifacts are trusted only after digest verification and manifest signature verification.
 `signature_ed25519` is standard base64 over the raw 64-byte Ed25519 signature.
-An optional release-level `capabilities` array records channel-specific changes;
-the signed manifest remains authoritative at installation time.
+An optional release-level `capabilities` array records channel-specific changes.
+It is required for every release when a plugin exposes more than one channel.
+Clients must resolve the selected release first and use its capability list;
+`plugin.capabilities` is only the default for single-channel or legacy entries.
+The signed manifest remains authoritative at installation time.
 
 ## Canonicalization
 

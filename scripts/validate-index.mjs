@@ -146,6 +146,9 @@ for (const plugin of data.plugins) {
     } else {
       assert(isAlphaVersion(release.version), `plugin ${plugin.id} alpha release ${release.version} must be an alpha prerelease`);
     }
+    if (channelNames.length > 1) {
+      assert(release.capabilities !== undefined, `plugin ${plugin.id} multi-channel release ${release.version} requires explicit capabilities`);
+    }
     if (release.capabilities !== undefined) validateCapabilities(plugin.id, release.capabilities, `release ${release.version}`);
     assert(isHTTPURL(release.manifest_url), `plugin ${plugin.id} release manifest_url must be HTTPS without userinfo/query/fragment`);
     assert(isHTTPURL(release.artifact_url), `plugin ${plugin.id} release artifact_url must be HTTPS without userinfo/query/fragment`);

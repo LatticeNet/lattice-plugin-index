@@ -87,6 +87,22 @@ try {
   missingChannelRelease.plugins[0].channels.alpha = "0.2.0-alpha.1";
   expectReject("missing-channel-release", missingChannelRelease, "alpha channel must match one release version");
 
+  const ambiguousMultiChannelCapabilities = baseIndex();
+  ambiguousMultiChannelCapabilities.plugins[0].channels.alpha = "0.2.0-alpha.1";
+  ambiguousMultiChannelCapabilities.plugins[0].releases.push({
+    ...ambiguousMultiChannelCapabilities.plugins[0].releases[0],
+    version: "0.2.0-alpha.1",
+    channel: "alpha",
+    capabilities: ["network:plan"],
+    manifest_url: "https://plugins.latticenet.invalid/test/0.2.0-alpha.1/manifest.json",
+    artifact_url: "https://plugins.latticenet.invalid/test/0.2.0-alpha.1/artifact",
+  });
+  expectReject(
+    "ambiguous-multi-channel-capabilities",
+    ambiguousMultiChannelCapabilities,
+    "multi-channel release 0.1.0 requires explicit capabilities",
+  );
+
   const wrongReleaseChannel = baseIndex();
   wrongReleaseChannel.plugins[0].channels.alpha = "0.2.0-alpha.1";
   wrongReleaseChannel.plugins[0].releases.push({

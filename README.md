@@ -46,7 +46,9 @@ shape, signatures, and URL hygiene, not remote asset existence.
 
 `latest` is retained only as a backwards-compatible stable alias. New clients
 must resolve `channels.stable` by default and require an explicit operator choice
-for `channels.alpha`.
+for `channels.alpha`. For multi-channel plugins, each release carries its own
+capability list; discovery and approval UI must use the selected release rather
+than the plugin-level legacy default.
 
 ## Repository Publishing
 

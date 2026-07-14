@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-13T18:01:20Z",
+  "generated_at": "2026-07-14T05:01:04Z",
   "status": "draft",
   "publishers": [
     {
@@ -15,11 +15,11 @@
       "name": "vpn-core (sing-box)",
       "publisher": "latticenet",
       "type": "system",
-      "summary": "sing-box proxy manager with plugin-owned sandbox pages for Lines, VPN identities, per-node runtime profiles, usage, and producer-side subscriptions.",
+      "summary": "sing-box proxy manager with plugin-owned sandbox pages for Lines, VPN identities, per-node runtime profiles, and usage.",
       "latest": "0.7.2",
       "channels": {
         "stable": "0.7.2",
-        "alpha": "0.8.0-alpha.2"
+        "alpha": "0.8.0-alpha.3"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.8.0-alpha.3",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.3/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.3/lattice-plugin-vpn-core",
+          "artifact_sha256": "7d18513f4343f53164bd6200b2378a8386c43f08407e89242af7c1ebc2691a73",
+          "signature_ed25519": "4fmv4SpK6U8oGaI5rq+a5gbOrbgtjaI47u5BWYubfRYIWOCr/d9rerP4MSvgg10EHkHIh3U3X4E6exM0HgdTAQ=="
+        },
         {
           "version": "0.8.0-alpha.2",
           "channel": "alpha",

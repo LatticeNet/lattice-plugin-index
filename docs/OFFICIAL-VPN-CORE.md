@@ -12,17 +12,16 @@ production VPN surfaces:
 - `latticenet.vpn-core/lines`
 - `latticenet.vpn-core/users`
 - `latticenet.vpn-core/profiles`
-- `latticenet.vpn-core/subscriptions`
 - `latticenet.vpn-core/usage`
 
-The dashboard calls these through the plugin gateway. The server enforces the
-declared interface scopes and serves the builtin views registered for the
-official plugin.
+The plugin bundle owns the browser UI for these services. The dashboard only
+hosts the opaque-origin sandbox, contributes design tokens, and brokers exact
+manifest-declared calls. The server enforces method scopes, exact-node
+allowlists where applicable, validation, persistence, and audit.
 
-Since `v0.7.1`, the official manifest publishes Lines as the only line/listener
-operator entry. The legacy dashboard builtin `proxy.inbounds` may remain in code
-for rollback or direct-core compatibility, but it is no longer exposed by the
-official vpn-core plugin navigation.
+The `v0.8.0-alpha` train exposes exactly four plugin destinations: Lines,
+Users, Node Profiles, and Usage. Deactivating or uninstalling the plugin removes
+all four contributions without leaving vpn-core pages in the base dashboard.
 
 ## Source of truth for sing-box
 
@@ -104,32 +103,30 @@ Lines should be the unified operator surface for discovered sing-box lines,
 managed line add/delete actions, node-local runtime metadata, outbound/route
 hints, per-line user bindings, and per-line usage once the node can report it.
 
-Today the production-safe write bridge is task-backed and asynchronous: add or
-delete queues a bounded agent task and the UI reflects the new state after the
-next discovery poll. The node-agent must be started with task execution enabled
-for those actions:
+Host mutation remains task-backed and asynchronous. The node-agent must be
+started with generic task execution enabled before a reviewed operation can run:
 
 - `LATTICE_AGENT_ALLOW_EXEC=1`
 - `LATTICE_AGENT_ALLOW_ROOT_EXEC=1` when the service runs as root and the action
   mutates root-owned config
 
-For common VPN nodes also enable:
+The base node UI owns only those generic execution prerequisites. vpn-core owns
+the sing-box-specific settings exposed in Node Profiles:
 
 - `LATTICE_SINGBOX_DISCOVER=1`
 - `LATTICE_SINGBOX_BIN=sb`
 
-Dashboard behavior:
+`v0.8.0-alpha.3` intentionally keeps Lines inspection read-only while the
+generic plugin step-up and pinned tool-provisioning contract is incomplete.
+Lines exposes public endpoint, local bind, Reality SNI, outbound references,
+ownership, relay metadata, status, and errors as distinct fields. User identity
+and line-binding mutations remain available through the declared
+`users-admin` interface.
 
-- Lines is the official add/delete entry in vpn-core `v0.7.1+`.
-- Add requires node, protocol, and port. Optional extra arguments are validated
-  and passed to the node-local `sb` tool.
-- Operators can preselect VPN users during add. The dashboard does not bind them
-  immediately, because the authoritative `line_hash_id` only exists after the
-  new runtime config is discovered. Instead it keeps a pending bind plan, queues
-  a follow-up probe, then binds selected users once a matching
-  node/protocol/port line appears.
-- Delete is available for discovered lines with a reported sing-box node name.
-  It queues `sb del` and the row disappears only after a later successful probe.
+Saving Node Profiles settings requires exact-node `node:admin` and `task:run`.
+It writes only vpn-core-owned launch fields, preserves generic launch settings,
+records an audit event, and returns a manual reconfiguration command. It never
+queues a task and never returns the unpinned installer command.
 
 ## Interop with the maintained sing-box tool fork
 
@@ -153,14 +150,12 @@ action, then rediscover", not "saved in Lattice".
 
 ## Dashboard contribution rules
 
-Official plugin dashboard views use builtin dashboard components registered in
-both places:
+Official v2 plugin views use `ui_runtime.mode = "sandbox"` and package their
+HTML, CSS, and JavaScript inside the signed artifact. Manifests declare nav
+entries, sandbox views, and method-level scopes. The dashboard must not compile
+plugin pages, route-specific API fallbacks, or vpn-core models.
 
-- dashboard `PluginView.vue` `BUILTIN_COMPONENTS`;
-- server `internal/plugin/contributions.go` `pluginBuiltinViews`.
-
-Manifests should declare nav entries, interface service/method names, required
-scopes, and `component_key` for builtin views.
-
-No plugin-provided browser JavaScript runs in the dashboard. Plugin UI is data
-and builtin component selection only.
+The iframe uses `sandbox="allow-scripts"` without `allow-same-origin`. Its
+opaque origin receives a nonce-bound bridge with only the server-filtered
+service/method set. Plugin assets are served from the immutable artifact digest
+path with explicit CORS headers suitable for the opaque iframe origin.

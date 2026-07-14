@@ -116,7 +116,7 @@ the sing-box-specific settings exposed in Node Profiles:
 - `LATTICE_SINGBOX_DISCOVER=1`
 - `LATTICE_SINGBOX_BIN=sb`
 
-`v0.8.0-alpha.3` intentionally keeps Lines inspection read-only while the
+`v0.8.0-alpha.4` intentionally keeps Lines inspection read-only while the
 generic plugin step-up and pinned tool-provisioning contract is incomplete.
 Lines exposes public endpoint, local bind, Reality SNI, outbound references,
 ownership, relay metadata, status, and errors as distinct fields. User identity

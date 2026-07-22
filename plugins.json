@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-07-14T05:23:20Z",
+  "generated_at": "2026-07-22T13:34:25Z",
   "status": "draft",
   "publishers": [
     {
@@ -19,7 +19,7 @@
       "latest": "0.7.2",
       "channels": {
         "stable": "0.7.2",
-        "alpha": "0.8.0-alpha.4"
+        "alpha": "0.8.0-alpha.5"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.8.0-alpha.5",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.5/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.5/lattice-plugin-vpn-core",
+          "artifact_sha256": "662354b0c15d461514f6c49262cd4e6b4e541cba77ce89092a9fcdc93fe74a32",
+          "signature_ed25519": "XL+jgzZWnfSfffLuJPBDFoKoJjQfVaLGRyMuKCq7zH7yKc9UcnQGMAKVwh9S0qdgEVSctwRqESX/MU+GTawxBg=="
+        },
         {
           "version": "0.8.0-alpha.4",
           "channel": "alpha",
@@ -95,15 +109,29 @@
       "latest": "0.3.1",
       "channels": {
         "stable": "0.3.1",
-        "alpha": "0.3.2-alpha.3"
+        "alpha": "0.3.2-alpha.4"
       },
       "capabilities": [
         "rpc:call",
-        "http:egress",
-        "kv:read",
-        "kv:write"
+        "http:operator-target",
+        "secret:read",
+        "secret:write"
       ],
       "releases": [
+        {
+          "version": "0.3.2-alpha.4",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:operator-target",
+            "secret:read",
+            "secret:write"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.4/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.3.2-alpha.4/lattice-plugin-sub-store-v0.3.2-alpha.4.tar.gz",
+          "artifact_sha256": "913cfd76cd6c47a2ba62a2c9247b9786203f406200e0932a599c8c871779fd58",
+          "signature_ed25519": "ZQUeUAAbURhqqKdvrEwZZ5EgJ2jZt+BC3tMfOeJ5RY8Mh4fynLWxAyx0I7bDCZzZc+3QCgXdlDp9pN21ezoiAg=="
+        },
         {
           "version": "0.3.2-alpha.3",
           "channel": "alpha",

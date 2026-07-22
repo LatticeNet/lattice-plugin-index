@@ -123,6 +123,10 @@ ownership, relay metadata, status, and errors as distinct fields. User identity
 and line-binding mutations remain available through the declared
 `users-admin` interface.
 
+`v0.8.0-alpha.5` adds explicit managed/adopted user plans and UUID reattachment.
+Planning remains side-effect free: the server binds or updates canonical state
+only after the approved node action succeeds and rediscovery confirms it.
+
 Saving Node Profiles settings requires exact-node `node:admin` and `task:run`.
 It writes only vpn-core-owned launch fields, preserves generic launch settings,
 records an audit event, and returns a manual reconfiguration command. It never

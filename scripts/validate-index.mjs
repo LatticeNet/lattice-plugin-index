@@ -29,6 +29,8 @@ const capabilitySet = new Set([
   "ddns:admin",
   "rpc:call",
   "rpc:expose",
+  "secret:read",
+  "secret:write",
 ]);
 const statusSet = new Set(["draft", "official", "example"]);
 const channelSet = new Set(["stable", "alpha"]);

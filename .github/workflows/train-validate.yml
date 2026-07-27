@@ -1,0 +1,29 @@
+name: train-validate
+
+on:
+  pull_request:
+  push:
+    branches: [main, integration]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate every train manifest
+        run: |
+          set -e
+          found=0
+          for f in train/examples/*.json train/*.json; do
+            [ -e "$f" ] || continue
+            case "$f" in *.schema.json) continue ;; esac
+            found=1
+            node scripts/validate-train.mjs "$f"
+          done
+          [ "$found" = "1" ] || { echo "no train manifests found" >&2; exit 1; }

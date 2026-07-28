@@ -5,9 +5,15 @@
 // Checks are the schema's constraints re-implemented plainly: required keys,
 // unknown-key rejection, pattern checks, and the two cross-field rules a JSON
 // Schema cannot express alone:
-//   1. a plain (non-prerelease) train must not contain prerelease component tags;
-//   2. plugin ids must be unique.
-// CI runs this over train/examples/ and every train/*.json.
+//   1. a plain (non-prerelease) train must not contain a NON-STABLE component in either
+//      notation — semver prerelease (v1.2.3-alpha.4) AND the server image train
+//      (alpha-1.2.3a4). The second form has no "-alpha." in it and defeated the first
+//      version of this check (found by review, 2026-07-28);
+//   2. plugin ids must be unique;
+//   3. tags belong to one of the three lanes of rules/01 §8.5, and plugin versions are
+//      X.Y.Z[-prerelease] — an unparseable version is not a version.
+// CI runs this over train/examples/ and every train/*.json, and runs test-validator.mjs,
+// which asserts the invalid fixtures in train/fixtures/invalid/ actually FAIL.
 
 import { readFileSync } from "node:fs";
 
@@ -16,6 +22,22 @@ const GIT_SHA = /^[0-9a-f]{7,40}$/;
 const TRAIN = /^v\d+\.\d+\.\d+(-(alpha|beta|rc)\.\d+)?$/;
 const PSEUDO = /^v\d+\.\d+\.\d+-0\.\d{14}-[0-9a-f]{12}$/;
 const PLUGIN_ID = /^[a-z0-9.-]+\.[a-z0-9-]+$/;
+const PLUGIN_VERSION = /^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$/;
+// A tag belongs to one of the three lanes of rules/01 §8.5: stable semver, prerelease
+// semver, or the server's image train (alpha-X.Y.ZaN). Anything else is a typo, not a lane.
+const TAG_LANES = [
+  /^v\d+\.\d+\.\d+$/,
+  /^v\d+\.\d+\.\d+-(alpha|beta|rc)\.\d+$/,
+  /^(alpha|beta|rc)-\d+\.\d+\.\d+[a-z]\d+$/,
+];
+// Non-stable in EITHER notation. The image train is the one that bit us: "alpha-0.2.2a3"
+// contains no "-alpha." and sailed through a prerelease-only check.
+const NON_STABLE = [
+  /-(alpha|beta|rc)\./,
+  /^(alpha|beta|rc)-/,
+  /\d+[a-z]\d+$/,
+];
+const isNonStable = (v) => typeof v === "string" && NON_STABLE.some((rx) => rx.test(v));
 
 const errors = [];
 const fail = (msg) => errors.push(msg);
@@ -30,6 +52,8 @@ function checkComponent(c, where, allowImage = false) {
   if (typeof c !== "object" || c === null) return fail(`${where}: not an object`);
   requireKeys(c, ["tag", "commit"], where, allowImage ? ["image"] : []);
   if (typeof c.tag !== "string" || !c.tag) fail(`${where}.tag: empty`);
+  else if (!TAG_LANES.some((rx) => rx.test(c.tag)))
+    fail(`${where}.tag: "${c.tag}" is not one of the three tag lanes (vX.Y.Z | vX.Y.Z-alpha.N | alpha-X.Y.ZaN)`);
   if (!GIT_SHA.test(c.commit ?? "")) fail(`${where}.commit: not a git sha`);
 }
 
@@ -65,6 +89,8 @@ for (const [i, p] of (c.plugins ?? []).entries()) {
   if (!PLUGIN_ID.test(p.id ?? "")) fail(`${where}.id: "${p.id}" not a plugin id`);
   if (seen.has(p.id)) fail(`${where}.id: duplicate "${p.id}"`);
   seen.add(p.id);
+  if (!PLUGIN_VERSION.test(p.version ?? ""))
+    fail(`${where}.version: "${p.version}" is not X.Y.Z[-prerelease]`);
   if (!SHA256.test(p.artifact_sha256 ?? "")) fail(`${where}.artifact_sha256: not a sha256`);
 }
 
@@ -82,11 +108,12 @@ if (Number.isNaN(Date.parse(v.generated_at ?? ""))) fail("verified.generated_at:
 // Cross-field rule: a plain train is a promotion — no prerelease components inside it.
 if (TRAIN.test(t.train ?? "") && !t.train.includes("-")) {
   for (const [name, comp] of Object.entries({ server: c.server, dashboard: c.dashboard, node_agent: c.node_agent, sdk: c.sdk })) {
-    if (typeof comp?.tag === "string" && /-(alpha|beta|rc)\./.test(comp.tag))
-      fail(`components.${name}.tag: prerelease "${comp.tag}" inside plain train ${t.train}`);
+    if (isNonStable(comp?.tag))
+      fail(`components.${name}.tag: non-stable "${comp.tag}" inside plain train ${t.train}`);
   }
   for (const p of c.plugins ?? [])
-    if (/-(alpha|beta|rc)\./.test(p.version ?? "")) fail(`plugin ${p.id}: prerelease "${p.version}" inside plain train ${t.train}`);
+    if (isNonStable(p.version)) fail(`plugin ${p.id}: non-stable "${p.version}" inside plain train ${t.train}`);
+  if (isNonStable(c.server?.image)) fail(`components.server.image: non-stable "${c.server.image}" inside plain train ${t.train}`);
 }
 
 if (errors.length) {

@@ -5,9 +5,17 @@
   "description": "One verified standard version across the fleet of repos: every component, every cross-repo pin, resolvable from this file alone. Produced per train; validated in CI; promoted to a plain semver train as one coordinated act.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schema", "train", "components", "pins", "verified"],
+  "required": [
+    "schema",
+    "train",
+    "components",
+    "pins",
+    "verified"
+  ],
   "properties": {
-    "schema": { "const": "lattice.release.train.v1" },
+    "schema": {
+      "const": "lattice.release.train.v1"
+    },
     "train": {
       "type": "string",
       "description": "The public train version. Plain vX.Y.Z only on an explicit operator release decision; -alpha.N/-beta.N while the train is in verification.",
@@ -16,26 +24,53 @@
     "components": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["server", "dashboard", "node_agent", "sdk", "plugins"],
+      "required": [
+        "server",
+        "dashboard",
+        "node_agent",
+        "sdk",
+        "plugins"
+      ],
       "properties": {
-        "server": { "$ref": "#/$defs/taggedComponent" },
-        "dashboard": { "$ref": "#/$defs/taggedComponent" },
-        "node_agent": { "$ref": "#/$defs/taggedComponent" },
-        "sdk": { "$ref": "#/$defs/taggedComponent" },
+        "server": {
+          "$ref": "#/$defs/serverComponent"
+        },
+        "dashboard": {
+          "$ref": "#/$defs/component"
+        },
+        "node_agent": {
+          "$ref": "#/$defs/component"
+        },
+        "sdk": {
+          "$ref": "#/$defs/component"
+        },
         "plugins": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "version", "artifact_sha256"],
+            "required": [
+              "id",
+              "version",
+              "artifact_sha256"
+            ],
             "properties": {
-              "id": { "type": "string", "pattern": "^[a-z0-9.-]+\\.[a-z0-9-]+$" },
-              "version": { "type": "string", "minLength": 1 },
-              "artifact_sha256": { "$ref": "#/$defs/sha256" },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9.-]+\\.[a-z0-9-]+$"
+              },
+              "version": {
+                "type": "string",
+                "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$",
+                "description": "X.Y.Z[-prerelease] \u2014 must match the validator; an unparseable version is not a version."
+              },
+              "artifact_sha256": {
+                "$ref": "#/$defs/sha256"
+              },
               "min_server": {
                 "type": "string",
-                "description": "MIRROR of the signed manifest's min_server — the signed value is authoritative (TASK-0010 Decision A(b))."
+                "description": "MIRROR of the signed manifest's min_server \u2014 the signed value is authoritative (TASK-0010 Decision A(b))."
               }
             }
           }
@@ -44,41 +79,94 @@
     },
     "pins": {
       "type": "object",
-      "description": "Cross-repo pins, resolvable rather than tribal (pin-graph G3). Each value must equal what the named component commits actually carry — CI cross-checks.",
+      "description": "Cross-repo pins, resolvable rather than tribal (pin-graph G3). Each value must equal what the named component commits actually carry \u2014 CI cross-checks.",
       "additionalProperties": false,
-      "required": ["server_sdk_ref", "server_dashboard_ref", "node_agent_sdk_pseudo"],
+      "required": [
+        "server_sdk_ref",
+        "server_dashboard_ref",
+        "node_agent_sdk_pseudo"
+      ],
       "properties": {
-        "server_sdk_ref": { "$ref": "#/$defs/gitSha" },
-        "server_dashboard_ref": { "$ref": "#/$defs/gitSha" },
-        "node_agent_sdk_pseudo": { "type": "string", "pattern": "^v\\d+\\.\\d+\\.\\d+-0\\.\\d{14}-[0-9a-f]{12}$" }
+        "server_sdk_ref": {
+          "$ref": "#/$defs/gitSha"
+        },
+        "server_dashboard_ref": {
+          "$ref": "#/$defs/gitSha"
+        },
+        "node_agent_sdk_pseudo": {
+          "type": "string",
+          "pattern": "^v\\d+\\.\\d+\\.\\d+-0\\.\\d{14}-[0-9a-f]{12}$"
+        }
       }
     },
     "verified": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["manifests_validated_against_server", "generated_at"],
+      "required": [
+        "manifests_validated_against_server",
+        "generated_at"
+      ],
       "properties": {
         "manifests_validated_against_server": {
           "type": "string",
-          "description": "Server version whose lattice-plugin-manifest-check accepted every plugin manifest in this train (TASK-0006 gate output — a green run is evidence about a SPECIFIC server).",
+          "description": "Server version whose lattice-plugin-manifest-check accepted every plugin manifest in this train (TASK-0006 gate output \u2014 a green run is evidence about a SPECIFIC server).",
           "minLength": 1
         },
-        "generated_at": { "type": "string", "format": "date-time" }
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
       }
     }
   },
   "$defs": {
-    "taggedComponent": {
+    "gitSha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "component": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["tag", "commit"],
+      "required": [
+        "tag",
+        "commit"
+      ],
       "properties": {
-        "tag": { "type": "string", "minLength": 1 },
-        "commit": { "$ref": "#/$defs/gitSha" },
-        "image": { "type": "string", "description": "Container image ref (server only)." }
-      }
+        "tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit": {
+          "$ref": "#/$defs/gitSha"
+        }
+      },
+      "description": "A component identified by tag + commit. Only the server carries an image."
     },
-    "gitSha": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
-    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+    "serverComponent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag",
+        "commit"
+      ],
+      "properties": {
+        "tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "commit": {
+          "$ref": "#/$defs/gitSha"
+        },
+        "image": {
+          "type": "string",
+          "description": "Container image ref (server only)."
+        }
+      },
+      "description": "The server component: tag + commit, plus the container image the train deploys."
+    }
   }
 }

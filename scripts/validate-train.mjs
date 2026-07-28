@@ -33,6 +33,11 @@ const TAG_LANES = [
 // Non-stable in EITHER notation. The image train is the one that bit us: "alpha-0.2.2a3"
 // contains no "-alpha." and sailed through a prerelease-only check.
 const NON_STABLE = [
+  // ANY SemVer prerelease marker — a hyphen after the numeric core. The earlier list
+  // named only the lanes we happen to use, so `1.0.0-dev.1` sailed into a plain train
+  // (found in review, r2). Recognising the marker rather than the vocabulary means an
+  // unfamiliar prerelease spelling fails closed instead of passing.
+  /^v?\d+\.\d+\.\d+-/,
   /-(alpha|beta|rc)\./,
   /^(alpha|beta|rc)-/,
   /\d+[a-z]\d+$/,

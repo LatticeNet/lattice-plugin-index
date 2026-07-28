@@ -138,7 +138,8 @@
       "properties": {
         "tag": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^(v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?|(alpha|beta|rc)-\\d+\\.\\d+\\.\\d+[a-z]\\d+)$",
+          "description": "One of the three tag lanes of rules/01 \u00a78.5 \u2014 schema and validator must agree, or schema-only consumers accept trains the validator rejects."
         },
         "commit": {
           "$ref": "#/$defs/gitSha"
@@ -156,7 +157,8 @@
       "properties": {
         "tag": {
           "type": "string",
-          "minLength": 1
+          "pattern": "^(v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?|(alpha|beta|rc)-\\d+\\.\\d+\\.\\d+[a-z]\\d+)$",
+          "description": "One of the three tag lanes of rules/01 \u00a78.5 \u2014 schema and validator must agree, or schema-only consumers accept trains the validator rejects."
         },
         "commit": {
           "$ref": "#/$defs/gitSha"

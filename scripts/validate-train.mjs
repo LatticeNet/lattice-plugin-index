@@ -10,8 +10,9 @@
 //      (alpha-1.2.3a4). The second form has no "-alpha." in it and defeated the first
 //      version of this check (found by review, 2026-07-28);
 //   2. plugin ids must be unique;
-//   3. tags belong to one of the three lanes of rules/01 §8.5, and plugin versions are
-//      X.Y.Z[-prerelease] — an unparseable version is not a version.
+//   3. tags belong to the component-appropriate lanes of rules/01 §8.5: only the server
+//      can use alpha-X.Y.ZaN; every other component uses stable/prerelease semver. Plugin
+//      versions are X.Y.Z[-prerelease] — an unparseable version is not a version.
 // CI runs this over train/examples/ and every train/*.json, and runs test-validator.mjs,
 // which asserts the invalid fixtures in train/fixtures/invalid/ actually FAIL.
 
@@ -23,12 +24,15 @@ const TRAIN = /^v\d+\.\d+\.\d+(-(alpha|beta|rc)\.\d+)?$/;
 const PSEUDO = /^v\d+\.\d+\.\d+-0\.\d{14}-[0-9a-f]{12}$/;
 const PLUGIN_ID = /^[a-z0-9.-]+\.[a-z0-9-]+$/;
 const PLUGIN_VERSION = /^\d+\.\d+\.\d+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$/;
-// A tag belongs to one of the three lanes of rules/01 §8.5: stable semver, prerelease
-// semver, or the server's image train (alpha-X.Y.ZaN). Anything else is a typo, not a lane.
-const TAG_LANES = [
+// The server alone owns the image-train lane. Sharing one pattern across every component let
+// a dashboard claim an alpha-X.Y.ZaN server tag (found in review, r3).
+const SEMVER_TAG_LANES = [
   /^v\d+\.\d+\.\d+$/,
   /^v\d+\.\d+\.\d+-(alpha|beta|rc)\.\d+$/,
-  /^(alpha|beta|rc)-\d+\.\d+\.\d+[a-z]\d+$/,
+];
+const SERVER_TAG_LANES = [
+  ...SEMVER_TAG_LANES,
+  /^alpha-\d+\.\d+\.\d+a\d+$/,
 ];
 // Non-stable in EITHER notation. The image train is the one that bit us: "alpha-0.2.2a3"
 // contains no "-alpha." and sailed through a prerelease-only check.
@@ -56,9 +60,14 @@ function requireKeys(obj, keys, where, extraAllowed = []) {
 function checkComponent(c, where, allowImage = false) {
   if (typeof c !== "object" || c === null) return fail(`${where}: not an object`);
   requireKeys(c, ["tag", "commit"], where, allowImage ? ["image"] : []);
+  const tagLanes = allowImage ? SERVER_TAG_LANES : SEMVER_TAG_LANES;
   if (typeof c.tag !== "string" || !c.tag) fail(`${where}.tag: empty`);
-  else if (!TAG_LANES.some((rx) => rx.test(c.tag)))
-    fail(`${where}.tag: "${c.tag}" is not one of the three tag lanes (vX.Y.Z | vX.Y.Z-alpha.N | alpha-X.Y.ZaN)`);
+  else if (!tagLanes.some((rx) => rx.test(c.tag)))
+    fail(
+      allowImage
+        ? `${where}.tag: "${c.tag}" is not a server tag lane (vX.Y.Z | vX.Y.Z-(alpha|beta|rc).N | alpha-X.Y.ZaN)`
+        : `${where}.tag: "${c.tag}" is not a component semver tag lane (vX.Y.Z | vX.Y.Z-(alpha|beta|rc).N)`,
+    );
   if (!GIT_SHA.test(c.commit ?? "")) fail(`${where}.commit: not a git sha`);
 }
 

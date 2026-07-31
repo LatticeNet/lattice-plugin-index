@@ -138,8 +138,8 @@
       "properties": {
         "tag": {
           "type": "string",
-          "pattern": "^(v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?|(alpha|beta|rc)-\\d+\\.\\d+\\.\\d+[a-z]\\d+)$",
-          "description": "One of the three tag lanes of rules/01 \u00a78.5 \u2014 schema and validator must agree, or schema-only consumers accept trains the validator rejects."
+          "pattern": "^v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?$",
+          "description": "A stable or prerelease semver tag. The alpha-X.Y.ZaN image lane is server-only."
         },
         "commit": {
           "$ref": "#/$defs/gitSha"
@@ -157,8 +157,8 @@
       "properties": {
         "tag": {
           "type": "string",
-          "pattern": "^(v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?|(alpha|beta|rc)-\\d+\\.\\d+\\.\\d+[a-z]\\d+)$",
-          "description": "One of the three tag lanes of rules/01 \u00a78.5 \u2014 schema and validator must agree, or schema-only consumers accept trains the validator rejects."
+          "pattern": "^(v\\d+\\.\\d+\\.\\d+(-(alpha|beta|rc)\\.\\d+)?|alpha-\\d+\\.\\d+\\.\\d+a\\d+)$",
+          "description": "A stable/prerelease semver tag or the server-only alpha-X.Y.ZaN image lane."
         },
         "commit": {
           "$ref": "#/$defs/gitSha"

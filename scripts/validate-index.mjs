@@ -20,6 +20,7 @@ const capabilitySet = new Set([
   "notify:send",
   "static:read",
   "static:write",
+  "subscription:serve",
   "task:read",
   "task:run",
   "tunnel:admin",

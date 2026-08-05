@@ -123,17 +123,37 @@
       "latest": "0.3.1",
       "channels": {
         "stable": "0.3.1",
-        "alpha": "0.4.0-alpha.2"
+        "alpha": "0.5.0-alpha.1"
       },
       "capabilities": [
         "rpc:call",
+        "http:egress",
         "http:operator-target",
         "kv:read",
         "kv:write",
         "secret:read",
-        "secret:write"
+        "secret:write",
+        "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.5.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "secret:read",
+            "secret:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.5.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.5.0-alpha.1/lattice-plugin-sub-store-0.5.0-alpha.1.tar.gz",
+          "artifact_sha256": "ca82b389d0e53c991409bfa4a838539097f453c749f13caed33f3806352983f1",
+          "signature_ed25519": "Iik20TwEEpwPGO9Cd9cY9L+Kr6eEHOpFtbYBXtwmIYJmxmgg+fXlEoCQWwkgdWMH+nY3kEdf/46DhATqlc4DCQ=="
+        },
         {
           "version": "0.4.0-alpha.2",
           "channel": "alpha",

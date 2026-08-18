@@ -1,6 +1,6 @@
 {
  "schema": "lattice.plugin.index.v1",
- "generated_at": "2026-08-18T02:28:19Z",
+ "generated_at": "2026-08-18T14:58:00Z",
  "status": "draft",
  "publishers": [
   {
@@ -123,7 +123,7 @@
    "latest": "0.3.1",
    "channels": {
     "stable": "0.3.1",
-    "alpha": "0.3.2-alpha.4"
+    "alpha": "0.13.0-alpha.8"
    },
    "capabilities": [
     "rpc:call",
@@ -132,6 +132,22 @@
     "secret:write"
    ],
    "releases": [
+    {
+     "version": "0.13.0-alpha.8",
+     "channel": "alpha",
+     "capabilities": [
+      "rpc:call",
+      "http:egress",
+      "http:operator-target",
+      "kv:read",
+      "kv:write",
+      "subscription:serve"
+     ],
+     "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.8/manifest.json",
+     "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.8/lattice-plugin-sub-store-0.13.0-alpha.8.tar.gz",
+     "artifact_sha256": "0fcf78068ce2ac6ae626fa1d71097924739810aed9ef6bce16d4e542874ce171",
+     "signature_ed25519": "DfCZngR0TocHdUo2DYO+bngzWFUIbNMnqISdNO+0+WW65fdMKOh8Rl3w6XxsggZCus/cg+w4okiC2BrBP7yoAQ=="
+    },
     {
      "version": "0.13.0-alpha.2",
      "channel": "alpha",
@@ -209,7 +225,7 @@
    "name": "netguard (nftables security groups)",
    "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
    "channels": {
-    "alpha": "0.1.0-alpha.7"
+    "alpha": "0.1.0-alpha.10"
    },
    "capabilities": [
     "node:read",
@@ -218,6 +234,20 @@
     "task:run"
    ],
    "releases": [
+    {
+     "version": "0.1.0-alpha.10",
+     "channel": "alpha",
+     "capabilities": [
+      "node:read",
+      "network:plan",
+      "network:apply",
+      "task:run"
+     ],
+     "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.10/manifest.json",
+     "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.10/lattice-plugin-netguard-0.1.0-alpha.10.tar.gz",
+     "artifact_sha256": "510a272198158017f0b530c5fd97b9fb0e75210dc74be4a9a76ead3d3f2ed488",
+     "signature_ed25519": "QHVfEgNeEyTEM0TodLnc7Rjb0RD0ZtnRFV6v7UOBqXdmAH4TJOxjCPdLZS6nCobmwL/R8/xiaDIna9xm/addAg=="
+    },
     {
      "version": "0.1.0-alpha.7",
      "channel": "alpha",

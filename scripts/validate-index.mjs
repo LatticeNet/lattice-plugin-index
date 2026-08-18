@@ -2,35 +2,43 @@
 import fs from "node:fs";
 import path from "node:path";
 
+// The server's capabilityRisk table is the source of truth (lattice-server
+// internal/plugin/plugin.go). A capability the server accepts but this list
+// does not is an index that rejects a legitimately signed release, which is
+// how subscription:serve, wireguard:read and wireguard:admin were failing
+// validation for plugins already running in production.
 const capabilitySet = new Set([
   "audit:read",
+  "ddns:admin",
   "http:egress",
   "http:operator-target",
   "kv:read",
   "kv:write",
   "log:write",
-  "monitor:read",
   "monitor:admin",
-  "netpolicy:read",
-  "netpolicy:admin",
-  "netguard:read",
+  "monitor:read",
   "netguard:admin",
-  "node:read",
-  "node:admin",
-  "notify:send",
-  "static:read",
-  "static:write",
-  "task:read",
-  "task:run",
-  "tunnel:admin",
-  "worker:route",
-  "network:plan",
+  "netguard:read",
+  "netpolicy:admin",
+  "netpolicy:read",
   "network:apply",
-  "ddns:admin",
+  "network:plan",
+  "node:admin",
+  "node:read",
+  "notify:send",
   "rpc:call",
   "rpc:expose",
   "secret:read",
   "secret:write",
+  "static:read",
+  "static:write",
+  "subscription:serve",
+  "task:read",
+  "task:run",
+  "tunnel:admin",
+  "wireguard:admin",
+  "wireguard:read",
+  "worker:route",
 ]);
 const statusSet = new Set(["draft", "official", "example"]);
 const channelSet = new Set(["stable", "alpha"]);

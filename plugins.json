@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-08-19T08:32:27Z",
+  "generated_at": "2026-08-19T08:39:16Z",
   "status": "draft",
   "publishers": [
     {
@@ -271,7 +271,7 @@
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.1.0-alpha.11"
+        "alpha": "0.1.0-alpha.12"
       },
       "capabilities": [
         "node:read",
@@ -280,6 +280,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.1.0-alpha.12",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.12/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.12/lattice-plugin-netguard-0.1.0-alpha.12.tar.gz",
+          "artifact_sha256": "29b89287d81aebe5609e91ff24711aef90bd1bf37a57dbcccedc983134e3534b",
+          "signature_ed25519": "ki2QBtL1GsorMSA2PtUj5FcPDT0g/8/j9T7IdLZ5oAAAIq3vpHuY7xzX1nPWrgyp9eGsGdQCsW88nraVu09DDA=="
+        },
         {
           "version": "0.1.0-alpha.11",
           "channel": "alpha",

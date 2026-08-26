@@ -165,7 +165,7 @@
       "latest": "0.3.1",
       "channels": {
         "stable": "0.3.1",
-        "alpha": "0.13.0-alpha.26"
+        "alpha": "0.13.0-alpha.27"
       },
       "capabilities": [
         "rpc:call",
@@ -175,7 +175,7 @@
       ],
       "releases": [
         {
-          "version": "0.13.0-alpha.26",
+          "version": "0.13.0-alpha.27",
           "channel": "alpha",
           "capabilities": [
             "rpc:call",
@@ -185,10 +185,10 @@
             "kv:write",
             "subscription:serve"
           ],
-          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.26/manifest.json",
-          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.26/lattice-plugin-sub-store-0.13.0-alpha.26.tar.gz",
-          "artifact_sha256": "3e37662acd8aab774b1359e2674b0c15430fe06ff67f8dd302fd54562fe2e112",
-          "signature_ed25519": "eOpHg/EBZCcfPGBPVyL0rQQYZ8u3fPviVi27PY4LLVOWPCePYrstjSqS+WC/8FPtbAxVQXhCHOTnmc9C7+S2Bg=="
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.27/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.27/lattice-plugin-sub-store-0.13.0-alpha.27.tar.gz",
+          "artifact_sha256": "15bfd4c650b4f1452e3d835a3cb49b4c2b0ee49c08a7de4f96658c4757295f55",
+          "signature_ed25519": "/pPqHgmk3JS/mHpisnonGuikfFN7dVZoRIcqsR6rJGsjhaEj2mpNCCtlsssxLwFVlnC+OPwtQO240ZSfhqVFCQ=="
         },
         {
           "version": "0.13.0-alpha.19",

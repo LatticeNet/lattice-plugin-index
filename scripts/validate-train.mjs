@@ -13,7 +13,7 @@
 //   3. tags belong to the component-appropriate lanes of rules/01 §8.5: only the server
 //      can use alpha-X.Y.ZaN; every other component uses stable/prerelease semver. Plugin
 //      versions are X.Y.Z[-prerelease] — an unparseable version is not a version.
-// CI runs this over train/examples/ and every train/*.json, and runs test-validator.mjs,
+// CI runs this over train/examples/ and every train/*.json, and runs test-train-validator.mjs,
 // which asserts the invalid fixtures in train/fixtures/invalid/ actually FAIL.
 
 import { readFileSync } from "node:fs";

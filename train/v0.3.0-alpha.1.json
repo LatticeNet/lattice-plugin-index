@@ -1,0 +1,59 @@
+{
+  "schema": "lattice.release.train.v1",
+  "train": "v0.3.0-alpha.1",
+  "components": {
+    "server": {
+      "tag": "alpha-0.2.2a4",
+      "commit": "c9c671079ab629866f650c8c3370edc66b0dcb27",
+      "image": "ghcr.io/latticenet/lattice-server:alpha-0.2.2a4"
+    },
+    "dashboard": {
+      "tag": "v0.2.2-alpha.7",
+      "commit": "8e6c20664c792d41728ba065b917de140ac61c6c"
+    },
+    "node_agent": {
+      "tag": "v0.3.3-alpha.2",
+      "commit": "03f730acb9653cc1a99c62c95510cafd58a4afad"
+    },
+    "sdk": {
+      "tag": "v0.2.18",
+      "commit": "00943f6ec9e78f27f0dc18f1bc43c11decba4f8f"
+    },
+    "plugins": [
+      {
+        "id": "latticenet.vpn-core",
+        "version": "0.8.0-alpha.7",
+        "artifact_sha256": "89e4d4846586242bfc3d2ee6cc2904e1ee760b1c65aefa8cd9389dca1fdfb760"
+      },
+      {
+        "id": "latticenet.sub-store",
+        "version": "0.4.0-alpha.2",
+        "artifact_sha256": "9cc706518834d6934329556437eca89b6b3b213eabdf8878b9dd019f50fe9b6a"
+      },
+      {
+        "id": "latticenet.wireguard",
+        "version": "0.1.0-alpha.9",
+        "artifact_sha256": "decba2ac6f25bbc1b09eefeef2c9c7998441c2c5490674e347926a45d33f5808"
+      },
+      {
+        "id": "latticenet.netguard",
+        "version": "0.1.0-alpha.9",
+        "artifact_sha256": "ac7e1d66b75a911b82f378999c0323c08917fa9d8030046bf790c64eb147b81c"
+      },
+      {
+        "id": "example.lattice-plugin",
+        "version": "0.2.1-alpha.6",
+        "artifact_sha256": "0a806be828bb55cfd33e9a935bb7fceb3ed6a164fbf08a547388f615073d4bb2"
+      }
+    ]
+  },
+  "pins": {
+    "server_sdk_ref": "4a318f246d23875cdd6448d96a62bd87bd67215c",
+    "server_dashboard_ref": "8e6c20664c792d41728ba065b917de140ac61c6c",
+    "node_agent_sdk_pseudo": "v0.2.18-0.20260722123932-4a318f246d23"
+  },
+  "verified": {
+    "manifests_validated_against_server": "v0.2.2-0.20260727095611-c9c671079ab6",
+    "generated_at": "2026-07-28T09:27:59Z"
+  }
+}

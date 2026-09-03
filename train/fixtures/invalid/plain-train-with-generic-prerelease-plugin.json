@@ -1,0 +1,38 @@
+{
+  "schema": "lattice.release.train.v1",
+  "train": "v0.3.0",
+  "components": {
+    "server": {
+      "tag": "v0.3.0",
+      "commit": "86422a1f5a0a6e00c172ed4003fd7da0d37c459e"
+    },
+    "dashboard": {
+      "tag": "v0.3.0",
+      "commit": "8e6c206"
+    },
+    "node_agent": {
+      "tag": "v0.3.0",
+      "commit": "03f730a"
+    },
+    "sdk": {
+      "tag": "v0.3.0",
+      "commit": "c3f2973"
+    },
+    "plugins": [
+      {
+        "id": "latticenet.vpn-core",
+        "version": "1.0.0-dev.1",
+        "artifact_sha256": "662354b0c15d461514f6c49262cd4e6b4e541cba77ce89092a9fcdc93fe74a32"
+      }
+    ]
+  },
+  "pins": {
+    "server_sdk_ref": "4a318f246d23875cdd6448d96a62bd87bd67215c",
+    "server_dashboard_ref": "a927c6cae45493233a4b5c648bf68bbcba8c5a03",
+    "node_agent_sdk_pseudo": "v0.2.18-0.20260722123932-4a318f246d23"
+  },
+  "verified": {
+    "manifests_validated_against_server": "example-only \u2014 real trains carry the lattice-plugin-manifest-check server version",
+    "generated_at": "2026-07-27T04:00:00Z"
+  }
+}

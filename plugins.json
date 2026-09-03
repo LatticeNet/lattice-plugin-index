@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-08-24T16:36:33Z",
+  "generated_at": "2026-09-03T03:01:24Z",
   "status": "draft",
   "publishers": [
     {
@@ -19,7 +19,7 @@
       "latest": "0.7.2",
       "channels": {
         "stable": "0.7.2",
-        "alpha": "0.8.0-alpha.14"
+        "alpha": "0.8.0-alpha.18"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,62 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.8.0-alpha.18",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.18/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.18/lattice-plugin-vpn-core-0.8.0-alpha.18.tar.gz",
+          "artifact_sha256": "dcdee4b76e5f3ad981d36658e564a11acf598c80a83e3094ed45ae1a41efffc9",
+          "signature_ed25519": "g3WAVHd61U0ed8ARxGKUeFVg6HJcSFunwR0hLBwmGR2ltQhNN5Zp1ubAH7Nv4UJrEw/7MHTXqhwajBityqCwDA=="
+        },
+        {
+          "version": "0.8.0-alpha.17",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.17/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.17/lattice-plugin-vpn-core-0.8.0-alpha.17.tar.gz",
+          "artifact_sha256": "07766d326f53a22e70b21bf2de68c625f9caeb1df284a5f2f865069c18b40c47",
+          "signature_ed25519": "ggEreBNILmBR+sLJUoqS5NWZ7z6xD3R0GaCXgtHRUtV9Bi4JlFao5l2orB2Qp5B/X/Ay6VVewtqThd0DNJWgDg=="
+        },
+        {
+          "version": "0.8.0-alpha.16",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.16/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.16/lattice-plugin-vpn-core-0.8.0-alpha.16.tar.gz",
+          "artifact_sha256": "22866157c3a22359ea785d78200a295f458a0ac1611b4e8161c7fc89ece8036f",
+          "signature_ed25519": "es8zahzLyKykriEVuNzpueb6rsm4ixH1Qce80XS6XA8GJqZhFrcyU0umc7/tJzdegJ1l0u+Rs30QnnjiL6MfAg=="
+        },
+        {
+          "version": "0.8.0-alpha.15",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.15/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.15/lattice-plugin-vpn-core-0.8.0-alpha.15.tar.gz",
+          "artifact_sha256": "a125b6e766f5d5971b13e4ca5b7bc0a481a71d2d2a9c04643f4d3dabf7bc4636",
+          "signature_ed25519": "qtwNGasNbheiEVHxOwlFGHLmXE0ZMwUTAcxeG1j2hI1KndR1fOjBe4H94s1GnAtQrLXk8ER0vO/npv9cK7fZDA=="
+        },
         {
           "version": "0.8.0-alpha.14",
           "channel": "alpha",
@@ -83,6 +139,20 @@
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.10/vpn-core.tar.gz",
           "artifact_sha256": "ab220f6fdd57a20d5c320887e11bded1af6e251a9c43eff3391dc78e0c651959",
           "signature_ed25519": "Exe7yhZnT2z2FiqJ5NZHDVWSzlKE6fz/jG59Ik9KDaqdQ3ntRS0mCq4wmWGqN2ffSBYHc0p0bQ/Gos0bkvnTAQ=="
+        },
+        {
+          "version": "0.8.0-alpha.7",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.7/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.8.0-alpha.7/lattice-plugin-vpn-core-0.8.0-alpha.7.tar.gz",
+          "artifact_sha256": "89e4d4846586242bfc3d2ee6cc2904e1ee760b1c65aefa8cd9389dca1fdfb760",
+          "signature_ed25519": "Fvsi/LwsmYq5vrML4ZVssS31RGEaujQTaEP8OjeY9QZK4lpeXIoxqmUIL+fLqe0SEL2fWde8Q/DTiLmKaif1AA=="
         },
         {
           "version": "0.8.0-alpha.5",
@@ -165,15 +235,51 @@
       "latest": "0.3.1",
       "channels": {
         "stable": "0.3.1",
-        "alpha": "0.13.0-alpha.27"
+        "alpha": "0.13.0-alpha.29"
       },
       "capabilities": [
         "rpc:call",
+        "http:egress",
         "http:operator-target",
+        "kv:read",
+        "kv:write",
         "secret:read",
-        "secret:write"
+        "secret:write",
+        "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.13.0-alpha.29",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.29/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.29/lattice-plugin-sub-store-0.13.0-alpha.29.tar.gz",
+          "artifact_sha256": "fc99af918d5cd5551aa389725c71fa2295adedb7c08c6f69e6fd98f6446b336b",
+          "signature_ed25519": "nv3bVTD9F7xioiSOrxIQ+YWiULpMDZpTJrEDXVQG8sspNk/cQ1uZNimSy83vKah/ZcOiRHiJBVxerDpAJSwiAQ=="
+        },
+        {
+          "version": "0.13.0-alpha.28",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.28/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.28/lattice-plugin-sub-store-0.13.0-alpha.28.tar.gz",
+          "artifact_sha256": "f3e1f1be876150cdca6b82f0a7a39f4952c006cff8c90515f70f5f3a814f83e2",
+          "signature_ed25519": "cFZGwDuZ7rb4Wj79m56g8w6s9oMC20FEjH0kN7CsFqw5OCYODhnHgQFjlDRqUVIqVp9tyuRuIfiACxDB5RRXDA=="
+        },
         {
           "version": "0.13.0-alpha.27",
           "channel": "alpha",
@@ -335,6 +441,58 @@
           "signature_ed25519": "x3zXXfqE09sYz6PqEJ0Acb0q824IK+HuXucHIbKg50Ysm+h6QkFi0PG3ooqftQANPZW58bovFU8ebXMmoJ+aCg=="
         },
         {
+          "version": "0.6.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "secret:read",
+            "secret:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.6.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.6.0-alpha.1/lattice-plugin-sub-store-0.6.0-alpha.1.tar.gz",
+          "artifact_sha256": "44652f96fdc60739b8e34f447bcd5e0632d20af0bce20a4ef3c1517d548977c8",
+          "signature_ed25519": "MYJHdQD7sit5PrpewtoCWhAnwx1dVZ8OhQ+hWHTw/uhlMhEe5EjSsL/uQNyD2KKkyQFDbn/dhRXqrl3JnwbHAw=="
+        },
+        {
+          "version": "0.5.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "secret:read",
+            "secret:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.5.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.5.0-alpha.1/lattice-plugin-sub-store-0.5.0-alpha.1.tar.gz",
+          "artifact_sha256": "ca82b389d0e53c991409bfa4a838539097f453c749f13caed33f3806352983f1",
+          "signature_ed25519": "Iik20TwEEpwPGO9Cd9cY9L+Kr6eEHOpFtbYBXtwmIYJmxmgg+fXlEoCQWwkgdWMH+nY3kEdf/46DhATqlc4DCQ=="
+        },
+        {
+          "version": "0.4.0-alpha.2",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "secret:read",
+            "secret:write"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.4.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.4.0-alpha.2/lattice-plugin-sub-store-0.4.0-alpha.2.tar.gz",
+          "artifact_sha256": "9cc706518834d6934329556437eca89b6b3b213eabdf8878b9dd019f50fe9b6a",
+          "signature_ed25519": "tA8daD3XlKSjbfl40gHmIsZreXBYKNqc2yfRcYxeZ9UYsZb2G9S31jBIMr43CYxP7VC/ZncsdRplci+dufsoAQ=="
+        },
+        {
           "version": "0.3.2-alpha.4",
           "channel": "alpha",
           "capabilities": [
@@ -395,7 +553,7 @@
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.1.0-alpha.13"
+        "alpha": "0.1.0-alpha.15"
       },
       "capabilities": [
         "node:read",
@@ -404,6 +562,34 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.1.0-alpha.15",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.15/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.15/lattice-plugin-netguard-0.1.0-alpha.15.tar.gz",
+          "artifact_sha256": "8230ae33155db808246d9a73f121a03aba2ff48e52bc39dba809fca89fd8313d",
+          "signature_ed25519": "Hffuf4CGb/tCy+s9OqixrorYfUie1PtuOzpUuBOsWvwqb0aI4xaTs3U2HryxMjRpp2diK2uLBHUURChtBSQLDg=="
+        },
+        {
+          "version": "0.1.0-alpha.14",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.14/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.14/lattice-plugin-netguard-0.1.0-alpha.14.tar.gz",
+          "artifact_sha256": "35031d5c6157aca238887aa323651fc69a6bf119ee94c06b6fcde7ed3ef14b6c",
+          "signature_ed25519": "ugYCEcTwkbUlXdPPmlu6uY6PAw5Io1uEiXBjaVPeiIgXi9h313ynFedle0F2s/MjwXslaSIINJv+1hj/N4PmCQ=="
+        },
         {
           "version": "0.1.0-alpha.13",
           "channel": "alpha",
@@ -461,6 +647,20 @@
           "signature_ed25519": "QHVfEgNeEyTEM0TodLnc7Rjb0RD0ZtnRFV6v7UOBqXdmAH4TJOxjCPdLZS6nCobmwL/R8/xiaDIna9xm/addAg=="
         },
         {
+          "version": "0.1.0-alpha.9",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.9/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.9/lattice-plugin-netguard-0.1.0-alpha.9.tar.gz",
+          "artifact_sha256": "ac7e1d66b75a911b82f378999c0323c08917fa9d8030046bf790c64eb147b81c",
+          "signature_ed25519": "fk1cP1vYuXBiGsWBb0zTwuaZrJMgKZrD2F/WMOrszhpGLYmpYi6ScGkAuofZFVEpVMexpEy+075ZI27NIBlIBQ=="
+        },
+        {
           "version": "0.1.0-alpha.7",
           "channel": "alpha",
           "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.1.0-alpha.7/manifest.json",
@@ -493,7 +693,7 @@
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager with plugin-owned Extensions UI backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.1.0-alpha.12"
+        "alpha": "0.1.0-alpha.13"
       },
       "capabilities": [
         "node:read",
@@ -502,6 +702,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.1.0-alpha.13",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.13/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.13/lattice-plugin-wireguard-0.1.0-alpha.13.tar.gz",
+          "artifact_sha256": "21cb3dfb69b4192cd4bf67ea607db51923f47b986f03cc7e0564eb2958cbfa1d",
+          "signature_ed25519": "gYA0BNlooQJkBDtJL6hhuMLazy8iE3og+ws5ubqQPg9d2hu8tAL3VMY5FzLPpSDpodhwNxJzhL7tj3DyWhtxAw=="
+        },
         {
           "version": "0.1.0-alpha.12",
           "channel": "alpha",
@@ -529,6 +743,20 @@
           "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.11/lattice-plugin-wireguard-0.1.0-alpha.11.tar.gz",
           "artifact_sha256": "a752f45771462e998c50504e53d24edfd7b358147d357399d08fefcaab1f09bf",
           "signature_ed25519": "M52gb52llFND764m4pYdd28fbFLwoYHXjr4FPa/YDa6rQGn8AC+IPflSuvNourwxR2+vC4nD6dAXe/erUi+GCA=="
+        },
+        {
+          "version": "0.1.0-alpha.9",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.9/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.1.0-alpha.9/lattice-plugin-wireguard-0.1.0-alpha.9.tar.gz",
+          "artifact_sha256": "decba2ac6f25bbc1b09eefeef2c9c7998441c2c5490674e347926a45d33f5808",
+          "signature_ed25519": "BVYZLcaRE0Q0K+v7RYXfkhQDfGzCloKwPBWd8oRu4xyCOYuFtIfFE6kHBgczlqOttC9G5Crre4ecRxQnfT8ACQ=="
         },
         {
           "version": "0.1.0-alpha.7",

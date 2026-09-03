@@ -1,0 +1,44 @@
+{
+  "schema": "lattice.release.train.v1",
+  "train": "v0.3.0-alpha.1",
+  "components": {
+    "server": {
+      "tag": "beta-1.2.3z4",
+      "commit": "86422a1f5a0a6e00c172ed4003fd7da0d37c459e",
+      "image": "ghcr.io/latticenet/lattice-server:beta-1.2.3z4"
+    },
+    "dashboard": {
+      "tag": "v0.2.2-alpha.6",
+      "commit": "8e6c206"
+    },
+    "node_agent": {
+      "tag": "v0.3.3-alpha.2",
+      "commit": "03f730a"
+    },
+    "sdk": {
+      "tag": "v0.2.9",
+      "commit": "c3f2973"
+    },
+    "plugins": [
+      {
+        "id": "latticenet.vpn-core",
+        "version": "0.8.0-alpha.5",
+        "artifact_sha256": "662354b0c15d461514f6c49262cd4e6b4e541cba77ce89092a9fcdc93fe74a32"
+      },
+      {
+        "id": "latticenet.sub-store",
+        "version": "0.3.2-alpha.4",
+        "artifact_sha256": "913cfd76cd6c47a2ba62a2c9247b9786203f406200e0932a599c8c871779fd58"
+      }
+    ]
+  },
+  "pins": {
+    "server_sdk_ref": "4a318f246d23875cdd6448d96a62bd87bd67215c",
+    "server_dashboard_ref": "a927c6cae45493233a4b5c648bf68bbcba8c5a03",
+    "node_agent_sdk_pseudo": "v0.2.18-0.20260722123932-4a318f246d23"
+  },
+  "verified": {
+    "manifests_validated_against_server": "invalid fixture: server image tag is outside alpha-X.Y.ZaN",
+    "generated_at": "2026-07-27T04:00:00Z"
+  }
+}

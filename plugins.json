@@ -249,7 +249,7 @@
       "latest": "0.3.1",
       "channels": {
         "stable": "0.3.1",
-        "alpha": "0.13.0-alpha.30"
+        "alpha": "0.13.0-alpha.31"
       },
       "capabilities": [
         "rpc:call",
@@ -262,6 +262,22 @@
         "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.13.0-alpha.31",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.31/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.13.0-alpha.31/lattice-plugin-sub-store-0.13.0-alpha.31.tar.gz",
+          "artifact_sha256": "37a1baa8858912f4a71b94fa150a223d790477336d056e4471644d33554816ba",
+          "signature_ed25519": "YLUPpbYCUgl479mttaPO9T6GpHZeW6qR3lF78xo0nycv08Lc7Sor7B6JN0rfVOaC039luVIbHYSYy70SR52gBg=="
+        },
         {
           "version": "0.13.0-alpha.30",
           "channel": "alpha",

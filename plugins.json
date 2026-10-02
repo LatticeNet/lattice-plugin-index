@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-02T04:49:52Z",
+  "generated_at": "2026-10-02T06:09:43Z",
   "status": "draft",
   "publishers": [
     {
@@ -19,7 +19,7 @@
       "latest": "0.8.0",
       "channels": {
         "stable": "0.8.0",
-        "alpha": "0.9.0-alpha.1"
+        "alpha": "0.10.0-alpha.1"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.10.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.10.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.10.0-alpha.1/lattice-plugin-vpn-core-0.10.0-alpha.1.tar.gz",
+          "artifact_sha256": "8f8c261d32e7c3fe60df3faf6d1c4710d58bee07dc72c9ea2d494c77854129d6",
+          "signature_ed25519": "sVXj5pea6fb1QQjKx45I4iufVlUX+S+XQ4wJr14ljqLn0gVqkZIeicL2rdFX/hYivjMqMwRtsRT1yvt9MqJ3Dw=="
+        },
         {
           "version": "0.9.0-alpha.1",
           "channel": "alpha",
@@ -277,7 +291,7 @@
       "latest": "0.13.0",
       "channels": {
         "stable": "0.13.0",
-        "alpha": "0.14.0-alpha.1"
+        "alpha": "0.15.0-alpha.1"
       },
       "capabilities": [
         "rpc:call",
@@ -290,6 +304,22 @@
         "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.15.0-alpha.1",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.15.0-alpha.1/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.15.0-alpha.1/lattice-plugin-sub-store-0.15.0-alpha.1.tar.gz",
+          "artifact_sha256": "22de134f544c877c37ffa117b34692331761eadf1cfb065411afe5aded8f00b9",
+          "signature_ed25519": "7H8vbK+TyyEXashRyx2zKx3idHfi/cj6eCCbBKw6iQLgkdyOedZ5pdTHuEhHg3x7lhW0padBqXCt45AKSv3MAQ=="
+        },
         {
           "version": "0.14.0-alpha.1",
           "channel": "alpha",

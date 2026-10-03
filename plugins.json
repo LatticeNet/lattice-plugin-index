@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-03T11:58:58Z",
+  "generated_at": "2026-10-03T20:36:02Z",
   "status": "draft",
   "publishers": [
     {
@@ -19,7 +19,7 @@
       "latest": "0.8.0",
       "channels": {
         "stable": "0.8.0",
-        "alpha": "0.10.0-alpha.1"
+        "alpha": "0.10.0-alpha.2"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.10.0-alpha.2",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.10.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.10.0-alpha.2/lattice-plugin-vpn-core-0.10.0-alpha.2.tar.gz",
+          "artifact_sha256": "7d4174dc8ef8c72e7be0cd4034bd3345859dcaee36a6971ad07dfb605335f928",
+          "signature_ed25519": "+r/wvoEQqe8yRjajUE90ZlaCqq+Z7BFBYquakMJc9po1wxcddKW28ZrYOPf0T502aU99xLAH2I/Bi+RXHKuFBw=="
+        },
         {
           "version": "0.10.0-alpha.1",
           "channel": "alpha",
@@ -291,7 +305,7 @@
       "latest": "0.13.0",
       "channels": {
         "stable": "0.13.0",
-        "alpha": "0.16.0-alpha.1"
+        "alpha": "0.16.0-alpha.2"
       },
       "capabilities": [
         "rpc:call",
@@ -304,6 +318,22 @@
         "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.16.0-alpha.2",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.16.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.16.0-alpha.2/lattice-plugin-sub-store-0.16.0-alpha.2.tar.gz",
+          "artifact_sha256": "32ff8560f26865f7b3d60374c16fae384f39bfb781f8293e89cb49f14c702afb",
+          "signature_ed25519": "kHxnl2h8U9VBtzRzuovDr+IMWouUHz89KQe9+a8IFDInamBTWliVPbaaOcCYpy62Ps9omzI+Y+PIa6WIgaxlBQ=="
+        },
         {
           "version": "0.16.0-alpha.1",
           "channel": "alpha",
@@ -769,7 +799,7 @@
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.2.0-alpha.1",
+        "alpha": "0.2.0-alpha.2",
         "stable": "0.1.0"
       },
       "capabilities": [
@@ -779,6 +809,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.2.0-alpha.2",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.2.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.2.0-alpha.2/lattice-plugin-netguard-0.2.0-alpha.2.tar.gz",
+          "artifact_sha256": "5eff8206cc1b2ace864996fc6de38369cc5b8049124a79ae5db5ad9bddfe9051",
+          "signature_ed25519": "TcQz4mcPIzXeLmD9l0FYtzM7zlGUc188TumybnmL5lQ89tLc+2/nfCU8QpjSUFQOvECypMnkbERylGwE6BDfCQ=="
+        },
         {
           "version": "0.2.0-alpha.1",
           "channel": "alpha",
@@ -971,7 +1015,7 @@
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager with plugin-owned Extensions UI backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.2.0-alpha.1",
+        "alpha": "0.2.0-alpha.2",
         "stable": "0.1.0"
       },
       "capabilities": [
@@ -981,6 +1025,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.2.0-alpha.2",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.2/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.2/lattice-plugin-wireguard-0.2.0-alpha.2.tar.gz",
+          "artifact_sha256": "ce3a7f7509b023aef9e6da10b23c2babb7a4850a11d4f30d8e326f6d9141cc23",
+          "signature_ed25519": "qNcvj9Xjviv6Z2m/IiN1WMIc8FlDwLo3cmswJibIXv3v9XdHqjpgVYnXFTe+VgTYrvoyrh5UA3/3obPffQnzBg=="
+        },
         {
           "version": "0.2.0-alpha.1",
           "channel": "alpha",

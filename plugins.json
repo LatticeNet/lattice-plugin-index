@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-09T04:35:58Z",
+  "generated_at": "2026-10-09T09:03:51Z",
   "status": "draft",
   "publishers": [
     {
@@ -375,7 +375,7 @@
       "latest": "0.13.0",
       "channels": {
         "stable": "0.13.0",
-        "alpha": "0.16.0-alpha.3"
+        "alpha": "0.16.0-alpha.4"
       },
       "capabilities": [
         "rpc:call",
@@ -388,6 +388,22 @@
         "subscription:serve"
       ],
       "releases": [
+        {
+          "version": "0.16.0-alpha.4",
+          "channel": "alpha",
+          "capabilities": [
+            "rpc:call",
+            "http:egress",
+            "http:operator-target",
+            "kv:read",
+            "kv:write",
+            "subscription:serve"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.16.0-alpha.4/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-sub-store/releases/download/v0.16.0-alpha.4/lattice-plugin-sub-store-0.16.0-alpha.4.tar.gz",
+          "artifact_sha256": "b21e106c0df762d50bb70e56376200da61a3a9a9a3f40008b2a9de1aaa834038",
+          "signature_ed25519": "OWxrrN1bMOceoyX0/pJnSWC7HQ/W4mU5RCRB2InPAKR6uJi7ad8iLLFlieTMXC/Q4dRygl42B+pFlofcW6lnAQ=="
+        },
         {
           "version": "0.16.0-alpha.3",
           "channel": "alpha",

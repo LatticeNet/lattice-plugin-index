@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-08T10:57:18Z",
+  "generated_at": "2026-10-09T01:55:47Z",
   "status": "draft",
   "publishers": [
     {
@@ -19,7 +19,7 @@
       "latest": "0.8.0",
       "channels": {
         "stable": "0.8.0",
-        "alpha": "0.11.0-alpha.3"
+        "alpha": "0.11.0-alpha.4"
       },
       "capabilities": [
         "node:read",
@@ -28,6 +28,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.11.0-alpha.4",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.11.0-alpha.4/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-vpn-core/releases/download/v0.11.0-alpha.4/lattice-plugin-vpn-core-0.11.0-alpha.4.tar.gz",
+          "artifact_sha256": "17d01c0535786f712ecfbd45f883509ad1148f568ea5076cf7b950ba0cc670d9",
+          "signature_ed25519": "eDnVvlr+h5oFGo4jqB0zjS7z2olapKvVUv91dhjANmxY5zxbAlOWsILOwHBrcMmdUJy5wzPdiAYUG9MvE3HvAg=="
+        },
         {
           "version": "0.11.0-alpha.3",
           "channel": "alpha",

@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-10T09:54:20Z",
+  "generated_at": "2026-10-16T06:27:01Z",
   "status": "draft",
   "publishers": [
     {
@@ -947,7 +947,7 @@
       "name": "netguard (nftables security groups)",
       "summary": "nftables security-group firewall manager with plugin-owned Extensions UI backed by the core NetGuard compiler, linting, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.2.0-alpha.5",
+        "alpha": "0.2.0-alpha.6",
         "stable": "0.1.0"
       },
       "capabilities": [
@@ -957,6 +957,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.2.0-alpha.6",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.2.0-alpha.6/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-netguard/releases/download/v0.2.0-alpha.6/lattice-plugin-netguard-0.2.0-alpha.6.tar.gz",
+          "artifact_sha256": "7ee92a640c444aed90dddfe71d696d8ddffa7b6cea37b7cf2a33fb6c8cc5a2ad",
+          "signature_ed25519": "ZxvgCZ30sNQjD8yXGr/eY9rro+JxUeLXwEaMvS+iQoXWIiX2EBWbyHe2WCmJojFVO1QrBDZjwkotd7ROC6NSBA=="
+        },
         {
           "version": "0.2.0-alpha.5",
           "channel": "alpha",
@@ -1205,7 +1219,7 @@
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager with plugin-owned Extensions UI backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.2.0-alpha.5",
+        "alpha": "0.2.0-alpha.6",
         "stable": "0.1.0"
       },
       "capabilities": [
@@ -1215,6 +1229,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.2.0-alpha.6",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.6/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.6/lattice-plugin-wireguard-0.2.0-alpha.6.tar.gz",
+          "artifact_sha256": "0ff6e8fc3bf274559cf5960078c06d45d60b4289494ee564615cce598f3bd85b",
+          "signature_ed25519": "yp6nzx0dOAaCynSfByfiIikyElHaMiRVmzts0KnUR23WVV06MMlDg6OkSfR3WuIENy52nr3L4dDkalwyEe57DQ=="
+        },
         {
           "version": "0.2.0-alpha.5",
           "channel": "alpha",

@@ -1,6 +1,6 @@
 {
   "schema": "lattice.plugin.index.v1",
-  "generated_at": "2026-10-17T15:40:05Z",
+  "generated_at": "2026-10-18T04:37:57Z",
   "status": "draft",
   "publishers": [
     {
@@ -1249,7 +1249,7 @@
       "name": "wireguard (VPN networks)",
       "summary": "WireGuard networks manager with plugin-owned Extensions UI backed by the core topology compiler, safe key handling, approval, dead-man watchdog, and node-agent apply pipeline.",
       "channels": {
-        "alpha": "0.2.0-alpha.6",
+        "alpha": "0.2.0-alpha.7",
         "stable": "0.1.0"
       },
       "capabilities": [
@@ -1259,6 +1259,20 @@
         "task:run"
       ],
       "releases": [
+        {
+          "version": "0.2.0-alpha.7",
+          "channel": "alpha",
+          "capabilities": [
+            "node:read",
+            "network:plan",
+            "network:apply",
+            "task:run"
+          ],
+          "manifest_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.7/manifest.json",
+          "artifact_url": "https://github.com/LatticeNet/lattice-plugin-wireguard/releases/download/v0.2.0-alpha.7/lattice-plugin-wireguard-0.2.0-alpha.7.tar.gz",
+          "artifact_sha256": "e7fa2eb1f1a3d1ec4d81b6ca2f3360cc1ad5dbca577b3da45621e50ea4b934f9",
+          "signature_ed25519": "hE/Y9u0/sq2LbV4qs6TRuN88RR6ajr9tEhVCbmE1ib/3dJs82Ix70iiESRIEq1nd+6POe2nchf69nexVL3puAQ=="
+        },
         {
           "version": "0.2.0-alpha.6",
           "channel": "alpha",
